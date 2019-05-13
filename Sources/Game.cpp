@@ -3,6 +3,7 @@
 //
 
 #include "../Headers/Game.hpp"
+#include "../Headers/Images.hpp"
 
 Game::Game() : window(sf::VideoMode(800, 600), "B O M B E R M A N  P R O i"), game_status(Status::Init)
 {
@@ -20,6 +21,9 @@ void Game::Run()
 {
     game_status = Status::Running;
 
+    //tlo
+    sf::Color bColor(40, 40, 40);
+
     while(game_status != Status::Exit){
         sf::Event event;
 
@@ -28,7 +32,7 @@ void Game::Run()
                 game_status = Status::Exit;
         }
 
-        window.clear(sf::Color::Black);
+        window.clear(bColor);
 
         window.display();
     }

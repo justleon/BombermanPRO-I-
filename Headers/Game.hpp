@@ -26,7 +26,7 @@ public:
     ~Game();
     void Run();
     inline sf::RenderWindow& GetWindow() { return window; }
-
+    inline Status GetStatus() const { return game_status; }
     inline static Game& Instance(){
         static Game instance;
         return instance;
