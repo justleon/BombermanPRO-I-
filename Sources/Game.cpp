@@ -10,33 +10,29 @@ Game::Game() : window(sf::VideoMode(800, 600), "B O M B E R M A N  P R O i"), ga
 {
 }
 
-Game::~Game()
-{
-    TextManager::Cleanup();
+Game::~Game() {
+    //TextManager::Cleanup();
     if(window.isOpen())
-    {
         window.close();
-    }
 }
 
-void Game::Run()
-{
+void Game::Run() {
     game_status = Status::Running;
-    sf::Texture *image = TextManager::Load("sprite","../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png");
+    //sf::Texture *image = TextManager::Load("sprite","../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png");
     /*if (!image.loadFromFile("../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png"))
     {
         std::cout << "error loading";
     }*/
-    image->setSmooth(true);
     sf::Sprite test_sprite;
-    test_sprite.setTexture(*image);
+    test_sprite.setTexture(*(TextManager::Load("sprite","../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png")));
+
     //tlo
     sf::Color bColor(40, 40, 40);
 
-    while(game_status != Status::Exit){
+    while(game_status != Status::Exit) {
         sf::Event event;
 
-        while(window.pollEvent(event)){
+        while(window.pollEvent(event)) {
             if(event.type == sf::Event::Closed)
                 game_status = Status::Exit;
         }

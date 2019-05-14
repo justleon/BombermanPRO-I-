@@ -7,21 +7,14 @@
 
 #include <SFML/Graphics.hpp>
 
-enum Status
-{
+enum Status {
     Init    = 0,
     Running = 1,
     Paused  = 2,
     Exit    = 3
 };
 
-class Game
-{
-private:
-    Game();
-    sf::RenderWindow window;
-    Status game_status;
-
+class Game {
 public:
     ~Game();
     void Run();
@@ -31,6 +24,12 @@ public:
         static Game instance;
         return instance;
     }
+
+private:
+    Game();
+    sf::RenderWindow window;
+    Status game_status;
+
 };
 
 #endif //SFML_GAME_HPP
