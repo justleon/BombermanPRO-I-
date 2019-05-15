@@ -5,7 +5,6 @@
 #ifndef SFML_TEXTURES_H
 #define SFML_TEXTURES_H
 
-#include <map>
 #include <SFML/Graphics.hpp>
 
 #include <unordered_map>

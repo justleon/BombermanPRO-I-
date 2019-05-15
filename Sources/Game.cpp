@@ -23,9 +23,12 @@ void Game::Run() {
     {
         std::cout << "error loading";
     }*/
-    sf::Sprite test_sprite;
-    test_sprite.setTexture(*(TextManager::Load("sprite","../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png")));
-
+    sf::Sprite test_sprite, sprite2;
+    // Wywolanie load i zapamietanie tekstury
+    test_sprite.setTexture(*(TextManager::Load("frontface","../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png")));
+    // Sprawdzenie get i zmiana pozycji sprite2
+    sprite2.setTexture(*(TextManager::Get("frontface")));
+    sprite2.setPosition(300,0);
     //tlo
     sf::Color bColor(40, 40, 40);
 
@@ -38,7 +41,9 @@ void Game::Run() {
         }
 
         window.clear(bColor);
+        // draw sprites (for jak bedzie duzo xdd) ah te commenty
         window.draw(test_sprite);
+        window.draw(sprite2);
         window.display();
     }
 }
