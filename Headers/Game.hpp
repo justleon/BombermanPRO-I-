@@ -6,6 +6,7 @@
 #define SFML_GAME_HPP
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 enum Status {
     Init    = 0,

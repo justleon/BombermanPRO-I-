@@ -12,9 +12,9 @@
 
 Game::Game() : window(sf::VideoMode(800, 600), "B O M B E R M A N  P R O i"), game_status(Status::Init)
 {
-    TextManager::Load("front", "Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
-    TextManager::Load("back", "Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
-    TextManager::Load("side", "Graphics/Sprites/Bomberman/Side/Bman_F_f00.png");
+    TextManager::Load("front", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
+    TextManager::Load("back", "../Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
+    TextManager::Load("side", "../Graphics/Sprites/Bomberman/Side/Bman_F_f00.png");
 }
 
 Game::~Game() {
