@@ -8,8 +8,8 @@
 
 EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController)
 {
-    playerSprite.setTexture(*(TextManager::Get("frontface")));
-    playerSprite.setOrigin(-50,0);
+    playerSprite.setTexture(*(TextManager::Get("front")));
+    playerSprite.setOrigin(32,64);
     direction = PlayerDir::PlayerDown;
 }
 
@@ -52,28 +52,27 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     }
 }
 
-EntityBombermanController::EntityBombermanController() : playerMoveSpeed(150)
+EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200)
 {
 }
 
 void EntityBombermanController::Update(const float &deltaTime)
 {
-    EntityBomberman *owner_cast;
-    owner_cast = dynamic_cast<EntityBomberman*>(owner);
+    auto* owner_cast = dynamic_cast<EntityBomberman*>(owner);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
         owner->Move(sf::Vector2f(0, -playerMoveSpeed * deltaTime));
-        owner_cast->SetDirection(PlayerUp);
+        owner_cast->SetDirection(PlayerDir::PlayerUp);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
         owner->Move(sf::Vector2f(0, playerMoveSpeed * deltaTime));
-        owner_cast->SetDirection(PlayerDown);
+        owner_cast->SetDirection(PlayerDir::PlayerDown);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
         owner->Move(sf::Vector2f(-playerMoveSpeed * deltaTime, 0));
-        owner_cast->SetDirection(PlayerLeft);
+        owner_cast->SetDirection(PlayerDir::PlayerLeft);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
         owner->Move(sf::Vector2f(playerMoveSpeed * deltaTime, 0));
-        owner_cast->SetDirection(PlayerRight);
+        owner_cast->SetDirection(PlayerDir::PlayerRight);
     }
 }
