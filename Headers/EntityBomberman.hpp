@@ -7,15 +7,27 @@
 
 #include "Entity.hpp"
 
+enum PlayerDir{
+    PlayerUp = 0,
+    PlayerDown = 1,
+    PlayerLeft = 2,
+    PlayerRight = 3
+};
+
 class EntityBomberman : public Entity
 {
 private:
     sf::Sprite playerSprite;
+    PlayerDir direction;
 public:
     EntityBomberman();
 
     virtual void SetLocation(const sf::Vector2f& loc) override;
     virtual void Draw() override;
+
+    void SetDirection(PlayerDir dir);
+
+    inline PlayerDir GetDirection() const { return direction; }
 };
 
 class EntityBombermanController : public EntityController

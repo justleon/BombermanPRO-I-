@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Game.cpp"
+#include "../Headers/Game.hpp"
 
 int main() {
     auto &game = Game::Instance();
