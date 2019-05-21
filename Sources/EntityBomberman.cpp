@@ -29,22 +29,22 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     if(direction != dir)
     {
         direction = dir;
-        if(direction == PlayerDir::PlayerUp)
+        if(direction == PlayerUp)
         {
             playerSprite.setTexture(*(TextManager::Get("back")));
             playerSprite.setScale(1, 1);
         }
-        if(direction == PlayerDir::PlayerDown)
+        if(direction == PlayerDown)
         {
             playerSprite.setTexture(*(TextManager::Get("front")));
             playerSprite.setScale(1, 1);
         }
-        if(direction == PlayerDir::PlayerLeft)
+        if(direction == PlayerLeft)
         {
             playerSprite.setTexture(*(TextManager::Get("side")));
             playerSprite.setScale(-1, 1);
         }
-        if(direction == PlayerDir::PlayerRight)
+        if(direction == PlayerRight)
         {
             playerSprite.setTexture(*(TextManager::Get("side")));
             playerSprite.setScale(1, 1);
