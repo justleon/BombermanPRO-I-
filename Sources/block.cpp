@@ -15,7 +15,7 @@ Block::Block(BlockType btype) : Entity(new EntityBombermanController), type(btyp
         bsprite.setTexture(*(TextManager::Get("ExpBlock")));
     else if(type == BlockType::Solid)
         bsprite.setTexture(*(TextManager::Get("SolidBlock")));
-    //bsprite.setScale(40.f/64.f, 40.f/64.f);
+    // bsprite.setScale(40.f/64.f, 40.f/64.f);
 }
 
 void Block::SetLocation(const sf::Vector2f &loc)
