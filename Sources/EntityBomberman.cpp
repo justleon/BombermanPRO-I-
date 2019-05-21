@@ -29,22 +29,22 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     if(direction != dir)
     {
         direction = dir;
-        if(direction == PlayerDir::PlayerUp)
+        if(direction == PlayerUp)
         {
             playerSprite.setTexture(*(TextManager::Get("back")));
             playerSprite.setScale(1, 1);
         }
-        if(direction == PlayerDir::PlayerDown)
+        if(direction == PlayerDown)
         {
             playerSprite.setTexture(*(TextManager::Get("front")));
             playerSprite.setScale(1, 1);
         }
-        if(direction == PlayerDir::PlayerLeft)
+        if(direction == PlayerLeft)
         {
             playerSprite.setTexture(*(TextManager::Get("side")));
             playerSprite.setScale(-1, 1);
         }
-        if(direction == PlayerDir::PlayerRight)
+        if(direction == PlayerRight)
         {
             playerSprite.setTexture(*(TextManager::Get("side")));
             playerSprite.setScale(1, 1);
@@ -58,21 +58,22 @@ EntityBombermanController::EntityBombermanController() : playerMoveSpeed(150)
 
 void EntityBombermanController::Update(const float &deltaTime)
 {
-    //auto* owner_cast = dynamic_cast<EntityBomberman*>(owner);
+    EntityBomberman *owner_cast;
+    owner_cast = dynamic_cast<EntityBomberman*>(owner);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
         owner->Move(sf::Vector2f(0, -playerMoveSpeed * deltaTime));
-       // owner_cast->SetDirection(PlayerDir::PlayerUp);
+        owner_cast->SetDirection(PlayerUp);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
         owner->Move(sf::Vector2f(0, playerMoveSpeed * deltaTime));
-        //owner_cast->SetDirection(PlayerDir::PlayerDown);
+        owner_cast->SetDirection(PlayerDown);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
         owner->Move(sf::Vector2f(-playerMoveSpeed * deltaTime, 0));
-        //owner_cast->SetDirection(PlayerDir::PlayerLeft);
+        owner_cast->SetDirection(PlayerLeft);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
         owner->Move(sf::Vector2f(playerMoveSpeed * deltaTime, 0));
-        //owner_cast->SetDirection(PlayerDir::PlayerRight);
+        owner_cast->SetDirection(PlayerRight);
     }
 }

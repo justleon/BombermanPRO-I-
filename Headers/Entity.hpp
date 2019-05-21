@@ -23,7 +23,7 @@ public:
     { location = loc; }
     inline virtual void SetRotation(const float& rot)
     { rotation = rot; }
-    inline void Move(const sf::Vector2f& delta)
+    inline void Move(const sf::Vector2f &delta)
     { this->SetLocation(location + delta); }
     inline void Rotate(const float& delta)
     { this->SetRotation(rotation + delta); }

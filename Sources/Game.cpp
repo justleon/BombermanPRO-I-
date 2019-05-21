@@ -15,10 +15,14 @@ Game::Game() : window(sf::VideoMode(800, 600), "B O M B E R M A N  P R O i"), ga
     TextManager::Load("front", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
     TextManager::Load("back", "../Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
     TextManager::Load("side", "../Graphics/Sprites/Bomberman/Side/Bman_F_f00.png");
+
+    TextManager::Load("ExpBlock", "../Graphics/Sprites/Blocks/ExplodableBlock.png");
+    TextManager::Load("SolidBlock", "../Graphics/Sprites/Blocks/SolidBlock.png");
+    TextManager::Load("background", "../Graphics/Sprites/Blocks/BackgroundTile.png");
 }
 
 Game::~Game() {
-    //TextManager::Cleanup();
+    TextManager::Cleanup();
     if(window.isOpen())
         window.close();
 }
