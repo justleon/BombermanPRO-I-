@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../Headers/Level.hpp"
 
 enum Status {
     Init    = 0,
@@ -21,6 +22,7 @@ public:
     void Run();
     inline sf::RenderWindow& GetWindow() { return window; }
     inline Status GetStatus() const { return game_status; }
+    inline Level *GetCurrentLevel() { return currentLevel; }
     inline static Game& Instance(){
         static Game instance;
         return instance;
@@ -30,6 +32,7 @@ private:
     Game();
     sf::RenderWindow window;
     Status game_status;
+    Level *currentLevel;
 
 };
 
