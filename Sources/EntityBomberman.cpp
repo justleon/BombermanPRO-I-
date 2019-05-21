@@ -52,6 +52,11 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     }
 }
 
+void EntityBomberman::SetAnimation(AnimManager *animation)
+{
+    currentAnimation = animation;
+}
+
 EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200)
 {
 }

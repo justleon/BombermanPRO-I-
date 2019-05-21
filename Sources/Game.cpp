@@ -27,14 +27,6 @@ void Game::Run() {
     game_status = Status::Running;
     sf::Clock GameClock;
     float DeltaTime = TIME_FRAME;
-    //sf::Texture *image = TextManager::Load("sprite","../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png");
-    /*if (!image.loadFromFile("../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png"))
-    {
-        std::cout << "error loading";
-    }*/
-
-    // Wywolanie load i zapamietanie tekstury
-
 
     auto* bomberman = new EntityBomberman();
 
