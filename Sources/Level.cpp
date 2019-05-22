@@ -75,3 +75,49 @@ void Level::Draw()
     for (auto *unit : units)
         unit->Draw();
 }
+
+void setMap(Level *currentLevel){
+    std::vector<std::vector<unsigned char> > blocks =
+            {
+                    {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2},
+                    {2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2},
+                    {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
+            };
+
+    for(auto y=0u; y<Y_BLOCKS; ++y){
+        for(auto x=0u; x<X_BLOCKS; ++x){
+            auto *block = new Block(BlockType::Background);
+            block->SetLocation(sf::Vector2f(x*64,y*64));
+            currentLevel->Add(block);
+        }
+    }
+
+
+    for(auto y=0u; y<Y_BLOCKS; ++y){
+        for(auto x=0u; x<X_BLOCKS; ++x){
+            unsigned char &type = blocks[y][x];
+            if(type == BlockType::Explosive){
+                auto *block = new Block(BlockType::Explosive);
+                block->SetLocation(sf::Vector2f(x*64,y*64));
+                currentLevel->Add(block);
+            }
+            if(type == BlockType::Solid){
+                auto *block = new Block(BlockType::Solid);
+                block->SetLocation(sf::Vector2f(x*64,y*64));
+                currentLevel->Add(block);
+            }
+        }
+    }
+}

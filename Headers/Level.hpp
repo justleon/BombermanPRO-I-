@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "../Headers/Entity.hpp"
+#include "../Headers/block.hpp"
 
 class Level
 {
@@ -51,5 +52,6 @@ private:
     Vunits units;		// Aktorzy na scenie.
 };
 
+void setMap(Level *currentLevel);
 
 #endif //SFML_LEVEL_H

@@ -2,16 +2,11 @@
 // Created by Leon on 2019-05-12.
 //
 
-#include <iostream>
 #include "../Headers/Game.hpp"
-#include "../Headers/Images.hpp"
-#include "../Headers/Entity.hpp"
-#include "../Headers/EntityBomberman.hpp"
-#include "../Headers/block.hpp"
 
 #define TIME_FRAME 1/60.f
 
-Game::Game() : window(sf::VideoMode(800, 600), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level())
+Game::Game() : window(sf::VideoMode(X_BLOCKS*64, Y_BLOCKS*64), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level())
 {
     TextManager::Load("front", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
     TextManager::Load("back", "../Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
@@ -43,14 +38,7 @@ void Game::Run() {
 
     // Wywolanie load i zapamietanie tekstury
 
-
-    for(auto y=0u; y<15; ++y){
-        for(auto x=0u; x<20; ++x){
-            auto *block = new Block(BlockType::Background);
-            block->SetLocation(sf::Vector2f(x*40,y*40));
-            currentLevel->Add(block);
-        }
-    }
+    setMap(currentLevel);
 
     auto* bomberman = new EntityBomberman();
     bomberman->SetLocation(sf::Vector2f(30,30));
