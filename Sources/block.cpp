@@ -7,7 +7,7 @@
 #include "../Headers/Game.hpp"
 #include "../Headers/Images.hpp"
 
-Block::Block(BlockType btype) : Entity(new EntityBombermanController), type(btype)
+Block::Block(BlockType btype) : Entity(new BlockController), type(btype)
 {
     if(type == BlockType::Background)
         bsprite.setTexture(*(TextManager::Get("Background")));

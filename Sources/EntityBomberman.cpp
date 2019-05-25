@@ -8,8 +8,10 @@
 
 EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController)
 {
-    playerSprite.setTexture(*(TextManager::Get("front")));
+    //anim = GlobalAnimations[0];
+    playerSprite.setTexture(*(TextManager::Get("front0")));
     playerSprite.setOrigin(32,64);
+    //anim.SetTarget(playerSprite);
     direction = PlayerDir::PlayerDown;
 }
 
@@ -31,31 +33,31 @@ void EntityBomberman::SetDirection(PlayerDir dir)
         direction = dir;
         if(direction == PlayerUp)
         {
-            playerSprite.setTexture(*(TextManager::Get("back")));
+            playerSprite.setTexture(*(TextManager::Get("back0")));
             playerSprite.setScale(1, 1);
         }
         if(direction == PlayerDown)
         {
-            playerSprite.setTexture(*(TextManager::Get("front")));
+            playerSprite.setTexture(*(TextManager::Get("front0")));
             playerSprite.setScale(1, 1);
         }
         if(direction == PlayerLeft)
         {
-            playerSprite.setTexture(*(TextManager::Get("side")));
+            playerSprite.setTexture(*(TextManager::Get("side0")));
             playerSprite.setScale(-1, 1);
         }
         if(direction == PlayerRight)
         {
-            playerSprite.setTexture(*(TextManager::Get("side")));
+            playerSprite.setTexture(*(TextManager::Get("side0")));
             playerSprite.setScale(1, 1);
         }
     }
 }
 
-void EntityBomberman::SetAnimation(AnimManager *animation)
+/*Animation EntityBomberman::GetAnimation() const
 {
-    currentAnimation = animation;
-}
+    return anim;
+}*/
 
 EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200)
 {
@@ -80,4 +82,6 @@ void EntityBombermanController::Update(const float &deltaTime)
         owner->Move(sf::Vector2f(playerMoveSpeed * deltaTime, 0));
         owner_cast->SetDirection(PlayerDir::PlayerRight);
     }
+
+    //owner_cast->GetAnimation().Update(deltaTime);
 }

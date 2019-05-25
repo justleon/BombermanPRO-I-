@@ -6,6 +6,7 @@
 #define SFML_ENTITYBOMBERMAN_HPP
 
 #include "Entity.hpp"
+#include "Animation.hpp"
 
 enum PlayerDir{
     PlayerUp = 0,
@@ -18,6 +19,7 @@ class EntityBomberman : public Entity
 {
 private:
     sf::Sprite playerSprite;
+    //Animation anim;
     PlayerDir direction;
 public:
     EntityBomberman();
@@ -26,6 +28,7 @@ public:
     virtual void Draw() override;
 
     void SetDirection(PlayerDir dir);
+    //Animation GetAnimation() const;
 
     inline PlayerDir GetDirection() const { return direction; }
 };

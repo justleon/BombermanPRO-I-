@@ -8,27 +8,50 @@
 #include "../Headers/Entity.hpp"
 #include "../Headers/EntityBomberman.hpp"
 #include "../Headers/block.hpp"
+#include "../Headers/Animation.hpp"
 
 #define TIME_FRAME 1/60.f
 
 Game::Game() : window(sf::VideoMode(800, 600), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level())
 {
-    TextManager::Load("front", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
-    TextManager::Load("back", "../Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
-    TextManager::Load("side", "../Graphics/Sprites/Bomberman/Side/Bman_F_f00.png");
+    TextManager::Load("front0", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
+    TextManager::Load("front1", "../Graphics/Sprites/Bomberman/Front/Bman_F_f01.png");
+    TextManager::Load("front2", "../Graphics/Sprites/Bomberman/Front/Bman_F_f02.png");
+    TextManager::Load("front3", "../Graphics/Sprites/Bomberman/Front/Bman_F_f03.png");
+    TextManager::Load("front4", "../Graphics/Sprites/Bomberman/Front/Bman_F_f04.png");
+    TextManager::Load("front5", "../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png");
+    TextManager::Load("front6", "../Graphics/Sprites/Bomberman/Front/Bman_F_f06.png");
+    TextManager::Load("front7", "../Graphics/Sprites/Bomberman/Front/Bman_F_f07.png");
+
+    TextManager::Load("back0", "../Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
+    TextManager::Load("back1", "../Graphics/Sprites/Bomberman/Back/Bman_B_f01.png");
+    TextManager::Load("back2", "../Graphics/Sprites/Bomberman/Back/Bman_B_f02.png");
+    TextManager::Load("back3", "../Graphics/Sprites/Bomberman/Back/Bman_B_f03.png");
+    TextManager::Load("back4", "../Graphics/Sprites/Bomberman/Back/Bman_B_f04.png");
+    TextManager::Load("back5", "../Graphics/Sprites/Bomberman/Back/Bman_B_f05.png");
+    TextManager::Load("back6", "../Graphics/Sprites/Bomberman/Back/Bman_B_f06.png");
+    TextManager::Load("back7", "../Graphics/Sprites/Bomberman/Back/Bman_B_f07.png");
+
+    TextManager::Load("side0", "../Graphics/Sprites/Bomberman/Side/Bman_F_f00.png");
+    TextManager::Load("side1", "../Graphics/Sprites/Bomberman/Side/Bman_F_f01.png");
+    TextManager::Load("side2", "../Graphics/Sprites/Bomberman/Side/Bman_F_f02.png");
+    TextManager::Load("side3", "../Graphics/Sprites/Bomberman/Side/Bman_F_f03.png");
+    TextManager::Load("side4", "../Graphics/Sprites/Bomberman/Side/Bman_F_f04.png");
+    TextManager::Load("side5", "../Graphics/Sprites/Bomberman/Side/Bman_F_f05.png");
+    TextManager::Load("side6", "../Graphics/Sprites/Bomberman/Side/Bman_F_f06.png");
+    TextManager::Load("side7", "../Graphics/Sprites/Bomberman/Side/Bman_F_f07.png");
 
     TextManager::Load("ExpBlock", "../Graphics/Sprites/Blocks/ExplodableBlock.png");
     TextManager::Load("SolidBlock", "../Graphics/Sprites/Blocks/SolidBlock.png");
     TextManager::Load("Background", "../Graphics/Sprites/Blocks/BackgroundTile.png");
-
 }
 
 Game::~Game() {
     TextManager::Cleanup();
     if(window.isOpen())
         window.close();
-    if(currentLevel)
-        delete currentLevel;
+    //if(currentLevel)
+    //    delete currentLevel;
 }
 
 void Game::Run() {
