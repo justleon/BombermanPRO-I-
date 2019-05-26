@@ -6,6 +6,7 @@
 #define SFML_ENTITYBOMBERMAN_HPP
 
 #include "Entity.hpp"
+#include "../Headers/bomb.hpp"
 
 enum PlayerDir{
     PlayerUp = 0,
@@ -34,6 +35,8 @@ class EntityBombermanController : public EntityController
 {
 private:
     float playerMoveSpeed;
+    const float bombPeriod;
+    float bombTime;
 public:
     EntityBombermanController();
 

@@ -52,13 +52,14 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     }
 }
 
-EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200)
+EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200), bombPeriod(0.8f), bombTime(0.8f)
 {
 }
 
 void EntityBombermanController::Update(const float &deltaTime)
 {
     auto* owner_cast = dynamic_cast<EntityBomberman*>(owner);
+    bombTime -= deltaTime;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
         owner->Move(sf::Vector2f(0, -playerMoveSpeed * deltaTime));
         owner_cast->SetDirection(PlayerDir::PlayerUp);
@@ -74,5 +75,16 @@ void EntityBombermanController::Update(const float &deltaTime)
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
         owner->Move(sf::Vector2f(playerMoveSpeed * deltaTime, 0));
         owner_cast->SetDirection(PlayerDir::PlayerRight);
+    }
+
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && bombTime <= 0){
+        bombTime = bombPeriod;
+        auto *bomb = new Bomb();
+        sf::Vector2f loc = owner->GetLocation();
+        loc.y += 50;
+        loc.x = (int(loc.x) / 64)*64;
+        loc.y = (int(loc.y) / 64)*64;
+        bomb->SetLocation(loc);
+        Game::Instance().GetCurrentLevel()->Add(bomb);
     }
 }

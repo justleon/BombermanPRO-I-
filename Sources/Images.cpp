@@ -11,7 +11,11 @@ TextManager::TextManager()
 TextManager::~TextManager()
 {
     /* Usuwamy każdą teksturę. */
-    for (auto textureData : text_map) delete (textureData.second);
+    for (auto textureData : text_map){
+        if(textureData.second)
+            delete (textureData.second);
+    }
+
 }
 
 sf::Texture* TextManager::Load(const std::string &textureName, const std::string &texturePath) {

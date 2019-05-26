@@ -16,14 +16,18 @@ Game::Game() : window(sf::VideoMode(X_BLOCKS*64, Y_BLOCKS*64), "B O M B E R M A 
     TextManager::Load("SolidBlock", "../Graphics/Sprites/Blocks/SolidBlock.png");
     TextManager::Load("Background", "../Graphics/Sprites/Blocks/BackgroundTile.png");
 
+    TextManager::Load("bomb", "../Graphics/Sprites/Bomb/Bomb_f03.png");
+
 }
 
 Game::~Game() {
-    TextManager::Cleanup();
+    auto textSize = TextManager::Cleanup();
+    std::cout << "Number of textures: " << textSize << std::endl;
     if(window.isOpen())
         window.close();
     if(currentLevel)
         delete currentLevel;
+
 }
 
 void Game::Run() {

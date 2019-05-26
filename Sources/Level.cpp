@@ -63,8 +63,8 @@ std::size_t Level::Cleanup()
 
 void Level::Update(const float &deltaTime)
 {
-    for (auto *unit : units)
-        unit->Update(deltaTime);
+    for (auto i = 0u; i<units.size(); i++)
+        units[i]->Update(deltaTime);
 }
 
 void Level::Draw()
@@ -79,7 +79,7 @@ void setMap(Level *currentLevel){
 
     std::vector<std::vector<int>> blocks;
     std::ifstream myMapFile;
-    myMapFile.open("../Maps/map2.txt");
+    myMapFile.open("../Maps/map1.txt");
     while (!myMapFile.eof()) {
         for(int i=0; i<Y_BLOCKS; i++){
             std::vector<int> tmpVec;

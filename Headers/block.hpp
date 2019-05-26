@@ -7,6 +7,7 @@
 
 #include "Entity.hpp"
 
+
 enum BlockType{
     Background = 0,
     Explosive = 1,
@@ -29,7 +30,6 @@ public:
 
 class BlockController : public EntityController
 {
-private:
 
 public:
     explicit BlockController();
