@@ -53,7 +53,7 @@ private:
     */
     TextManager();
 
-    /*	Tworzy pojedynczą instancję klasy CTextureManager i ją zwraca.
+    /*	Tworzy pojedynczą instancję klasy TextManager i ją zwraca.
         Ta metoda jest prywatna, ze względu na to, że zostawiamy zarządzanie
         klasą metodom statycznym.
     */

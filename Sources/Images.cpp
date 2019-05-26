@@ -4,19 +4,16 @@
 
 #include "../Headers/Images.hpp"
 
-//////////////////////////////////////////////////////////////////////
 TextManager::TextManager()
 {
 }
 
-//////////////////////////////////////////////////////////////////////
 TextManager::~TextManager()
 {
     /* Usuwamy każdą teksturę. */
     for (auto textureData : text_map) delete (textureData.second);
 }
 
-//////////////////////////////////////////////////////////////////////
 sf::Texture* TextManager::Load(const std::string &textureName, const std::string &texturePath) {
     /* Spróbujmy pobrać teksture z menedżera */
     sf::Texture *result = TextManager::Get(textureName);
@@ -43,7 +40,6 @@ sf::Texture* TextManager::Load(const std::string &textureName, const std::string
     return result;
 }
 
-//////////////////////////////////////////////////////////////////////
 bool TextManager::Unload(const std::string &textureName) {
     /*	By uniknąć kilkukrotniego wywołania funkcji Instance()
         tworzymy referencje na tą instancję.
@@ -72,7 +68,6 @@ bool TextManager::Unload(const std::string &textureName) {
     }
 }
 
-//////////////////////////////////////////////////////////////////////
 std::size_t TextManager::Cleanup() {
     /*	By uniknąć kilkukrotniego wywołania funkcji Instance()
         tworzymy referencje na tą instancję.
@@ -90,7 +85,6 @@ std::size_t TextManager::Cleanup() {
     return textureCount;
 }
 
-//////////////////////////////////////////////////////////////////////
 sf::Texture * TextManager::Get(const std::string &textureName) {
     /*	By uniknąć kilkukrotniego wywołania funkcji Instance()
         tworzymy referencje na tą instancję.

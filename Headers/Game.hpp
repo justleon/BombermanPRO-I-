@@ -6,8 +6,10 @@
 #define SFML_GAME_HPP
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include <vector>
 #include "../Headers/Level.hpp"
+#include "../Headers/Images.hpp"
+#include "../Headers/EntityBomberman.hpp"
 
 enum Status {
     Init    = 0,
