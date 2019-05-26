@@ -10,7 +10,6 @@
 #include "../Headers/Level.hpp"
 #include "../Headers/Images.hpp"
 #include "../Headers/EntityBomberman.hpp"
-#include "../Headers/block.hpp"
 
 enum Status {
     Init    = 0,

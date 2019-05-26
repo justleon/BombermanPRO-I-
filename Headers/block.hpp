@@ -6,10 +6,6 @@
 #define SFML_MAP_H
 
 #include "Entity.hpp"
-#include <vector>
-
-const int X_BLOCKS = 20;
-const int Y_BLOCKS = 15;
 
 enum BlockType{
     Background = 0,
