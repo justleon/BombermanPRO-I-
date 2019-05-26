@@ -29,6 +29,8 @@ public:
 
     bool Exists(Entity *unit) const;
 
+    std::vector<Entity*> GetCollidingTiles();
+
     std::size_t Cleanup();
 
     void Update(const float &deltaTime);

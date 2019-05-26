@@ -3,7 +3,7 @@
 //
 
 #include "../Headers/Level.hpp"
-
+#include "../Headers/block.hpp"
 
 
 Level::Level()
@@ -51,6 +51,20 @@ bool Level::Remove(Entity *unit)
 bool Level::Exists(Entity *unit) const
 {
     return std::find(units.begin(), units.end(), unit) != units.end();
+}
+
+std::vector<Entity*> Level::GetCollidingTiles()
+{
+    std::vector<Entity*> tiles;
+    for(auto* tile : units)
+    {
+        auto* block = dynamic_cast<Block*>(tile);
+        if(block && block->GetType() != BlockType::Background)
+        {
+            tiles.push_back(tile);
+        }
+    }
+    return tiles;
 }
 
 std::size_t Level::Cleanup()
