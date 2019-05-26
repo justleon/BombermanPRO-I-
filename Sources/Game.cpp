@@ -77,7 +77,7 @@ void Game::Run() {
     setMap(currentLevel);
 
     auto* bomberman = new EntityBomberman();
-    bomberman->SetLocation(sf::Vector2f(30,30));
+    bomberman->SetLocation(sf::Vector2f(85,85));
     currentLevel->Add(bomberman);
 
     //tlo

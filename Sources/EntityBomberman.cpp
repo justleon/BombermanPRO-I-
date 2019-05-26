@@ -10,7 +10,7 @@ EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController)
 {
     //anim = GlobalAnimations[0];
     playerSprite.setTexture(*(TextManager::Get("front0")));
-    playerSprite.setOrigin(32,64);
+    playerSprite.setOrigin(32,92);
     //anim.SetTarget(playerSprite);
     direction = PlayerDir::PlayerDown;
 }
@@ -24,6 +24,21 @@ void EntityBomberman::SetLocation(const sf::Vector2f &loc)
 void EntityBomberman::Draw()
 {
     Game::Instance().GetWindow().draw(playerSprite);
+}
+
+bool EntityBomberman::IsColliding()
+{
+    sf::FloatRect collider(sf::Vector2f(location.x-17.5, location.y-15), sf::Vector2f(35, 45));
+
+    auto tiles = Game::Instance().GetCurrentLevel()->GetCollidingTiles();
+    for(auto* tile : tiles)
+    {
+        sf::FloatRect tileCollider(sf::Vector2f(tile->GetLocation().x, tile->GetLocation().y), sf::Vector2f(64, 64));
+        if(tileCollider.intersects(collider))
+            return true;
+    }
+
+    return false;
 }
 
 void EntityBomberman::SetDirection(PlayerDir dir)
@@ -67,21 +82,61 @@ void EntityBombermanController::Update(const float &deltaTime)
 {
     auto* owner_cast = dynamic_cast<EntityBomberman*>(owner);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-        owner->Move(sf::Vector2f(0, -playerMoveSpeed * deltaTime));
-        owner_cast->SetDirection(PlayerDir::PlayerUp);
+        this->MoveUp(-playerMoveSpeed * deltaTime, owner_cast);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-        owner->Move(sf::Vector2f(0, playerMoveSpeed * deltaTime));
-        owner_cast->SetDirection(PlayerDir::PlayerDown);
+        this->MoveDown(playerMoveSpeed * deltaTime, owner_cast);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-        owner->Move(sf::Vector2f(-playerMoveSpeed * deltaTime, 0));
-        owner_cast->SetDirection(PlayerDir::PlayerLeft);
+        this->MoveLeft(-playerMoveSpeed * deltaTime, owner_cast);
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-        owner->Move(sf::Vector2f(playerMoveSpeed * deltaTime, 0));
-        owner_cast->SetDirection(PlayerDir::PlayerRight);
+        this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
     }
 
     //owner_cast->GetAnimation().Update(deltaTime);
+}
+
+bool EntityBombermanController::MoveUp(const float& delta, EntityBomberman* owner_cast)
+{
+    owner->Move(sf::Vector2f(0, delta));
+    owner_cast->SetDirection(PlayerDir::PlayerUp);
+
+    if(owner_cast->IsColliding())
+        owner->Move(sf::Vector2f(0, -delta));
+
+    return false;
+}
+
+bool EntityBombermanController::MoveDown(const float& delta, EntityBomberman* owner_cast)
+{
+    owner->Move(sf::Vector2f(0, delta));
+    owner_cast->SetDirection(PlayerDir::PlayerDown);
+
+    if(owner_cast->IsColliding())
+        owner->Move(sf::Vector2f(0, -delta));
+
+    return false;
+}
+
+bool EntityBombermanController::MoveLeft(const float& delta, EntityBomberman* owner_cast)
+{
+    owner->Move(sf::Vector2f(delta, 0));
+    owner_cast->SetDirection(PlayerDir::PlayerLeft);
+
+    if(owner_cast->IsColliding())
+        owner->Move(sf::Vector2f(-delta, 0));
+
+    return false;
+}
+
+bool EntityBombermanController::MoveRight(const float& delta, EntityBomberman* owner_cast)
+{
+    owner->Move(sf::Vector2f(delta, 0));
+    owner_cast->SetDirection(PlayerDir::PlayerRight);
+
+    if(owner_cast->IsColliding())
+        owner->Move(sf::Vector2f(-delta, 0));
+
+    return false;
 }
