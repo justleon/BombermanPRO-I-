@@ -5,6 +5,7 @@
 #include "../Headers/EntityBomberman.hpp"
 #include "../Headers/Game.hpp"
 #include "../Headers/Images.hpp"
+#include "../Headers/block.hpp"
 
 EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController)
 {
@@ -28,14 +29,21 @@ void EntityBomberman::Draw()
 
 bool EntityBomberman::IsColliding()
 {
-    sf::FloatRect collider(sf::Vector2f(location.x-17.5, location.y-15), sf::Vector2f(35, 45));
+    sf::FloatRect collider(sf::Vector2f(location.x-17.5, location.y+5), sf::Vector2f(35, 25));
 
     auto tiles = Game::Instance().GetCurrentLevel()->GetCollidingTiles();
     for(auto* tile : tiles)
     {
-        sf::FloatRect tileCollider(sf::Vector2f(tile->GetLocation().x, tile->GetLocation().y), sf::Vector2f(64, 64));
-        if(tileCollider.intersects(collider))
-            return true;
+        auto* block_cast = dynamic_cast<Block*>(tile);
+        if((block_cast->GetType() != BlockType::PUExp) && (block_cast->GetType() != BlockType::PUBomb) && (block_cast->GetType() != BlockType::PUSpeed)){
+            sf::FloatRect tileCollider(sf::Vector2f(tile->GetLocation().x, tile->GetLocation().y), sf::Vector2f(TILE_SIZE, TILE_SIZE));
+            if(tileCollider.intersects(collider))
+                return true;
+        } else{
+            sf::FloatRect tileCollider(sf::Vector2f(tile->GetLocation().x, tile->GetLocation().y), sf::Vector2f(TILE_SIZE/2, TILE_SIZE/2));
+            if(tileCollider.intersects(collider))
+                tile->Destroy();
+        }
     }
 
     return false;

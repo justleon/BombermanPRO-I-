@@ -4,6 +4,7 @@
 
 #include "../Headers/Level.hpp"
 #include "../Headers/block.hpp"
+#include "../Headers/PowerUp.hpp"
 
 
 Level::Level()
@@ -122,7 +123,7 @@ void setMap(Level *currentLevel){
     for(auto y=0u; y<Y_BLOCKS; ++y){
         for(auto x=0u; x<X_BLOCKS; ++x){
             auto *block = new Block(BlockType::Background);
-            block->SetLocation(sf::Vector2f(x*64,y*64));
+            block->SetLocation(sf::Vector2f(x*TILE_SIZE,y*TILE_SIZE));
             currentLevel->Add(block);
         }
     }
@@ -133,13 +134,28 @@ void setMap(Level *currentLevel){
             int &type = blocks[y][x];
             if(type == BlockType::Explosive){
                 auto *block = new Block(BlockType::Explosive);
-                block->SetLocation(sf::Vector2f(x*64,y*64));
+                block->SetLocation(sf::Vector2f(x*TILE_SIZE,y*TILE_SIZE));
                 currentLevel->Add(block);
             }
             if(type == BlockType::Solid){
                 auto *block = new Block(BlockType::Solid);
-                block->SetLocation(sf::Vector2f(x*64,y*64));
+                block->SetLocation(sf::Vector2f(x*TILE_SIZE,y*TILE_SIZE));
                 currentLevel->Add(block);
+            }
+            if(type == BlockType::PUBomb){
+                auto *powerup = new PowerUp<int>(BlockType::PUBomb, 1);
+                powerup->SetLocation(sf::Vector2f(x*TILE_SIZE+16,y*TILE_SIZE+16));
+                currentLevel->Add(powerup);
+            }
+            if(type == BlockType::PUExp){
+                auto *powerup = new PowerUp<int>(BlockType::PUExp, 1);
+                powerup->SetLocation(sf::Vector2f(x*TILE_SIZE+16,y*TILE_SIZE+16));
+                currentLevel->Add(powerup);
+            }
+            if(type == BlockType::PUSpeed){
+                auto *powerup = new PowerUp<int>(BlockType::PUSpeed, 1);
+                powerup->SetLocation(sf::Vector2f(x*TILE_SIZE+16,y*TILE_SIZE+16));
+                currentLevel->Add(powerup);
             }
         }
     }
