@@ -4,7 +4,7 @@
 
 #include "../Headers/Entity.hpp"
 
-Entity::Entity(EntityController *control) : controller(nullptr), rotation(0)
+Entity::Entity(EntityController *control) : controller(nullptr), rotation(0), destroyed(false)
 {
     if(control && control->Control(this))
     {

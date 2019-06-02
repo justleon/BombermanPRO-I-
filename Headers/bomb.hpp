@@ -2,8 +2,8 @@
 // Created by Bartłomiej Binda on 24/05/2019.
 //
 
-#ifndef SFML_MAP_H
-#define SFML_MAP_H
+#ifndef SFML_BOMB_HPP
+#define SFML_BOMB_HPP
 
 #include "Entity.hpp"
 #include "../Headers/EntityBomberman.hpp"
@@ -15,7 +15,7 @@ class Bomb : public Entity
 private:
     sf::Sprite bombsprite;
 public:
-    explicit Bomb();
+    Bomb();
 
     virtual void SetLocation(const sf::Vector2f& loc) override;
     virtual void Draw() override;
@@ -24,12 +24,36 @@ public:
 
 class BombController : public EntityController
 {
+private:
+    float explodeTime;
 
 public:
-    explicit BombController();
+    BombController();
 
     virtual void Update(const float& deltaTime) override;
 };
 
+class Explosion : public Entity
+{
+private:
+    sf::Sprite flamesprite;
+public:
+    Explosion();
 
-#endif //SFML_MAP_H
+    virtual void SetLocation(const sf::Vector2f& loc) override;
+    virtual void Draw() override;
+
+};
+
+class ExplosionController : public EntityController
+{
+private:
+    float flameTime;
+
+public:
+    ExplosionController();
+
+    virtual void Update(const float& deltaTime) override;
+};
+
+#endif //SFML_BOMB_HPP

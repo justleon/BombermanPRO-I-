@@ -2,8 +2,8 @@
 // Created by Bartłomiej Binda on 13/05/2019.
 //
 
-#ifndef SFML_TEXTURES_H
-#define SFML_TEXTURES_H
+#ifndef SFML_IMAGES_HPP
+#define SFML_IMAGES_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -65,4 +65,4 @@ private:
     text_um	text_map;		// Zbiór tekstur.
 };
 
-#endif //SFML_TEXTURES_H
+#endif //SFML_IMAGES_HPP

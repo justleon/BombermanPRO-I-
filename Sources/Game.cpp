@@ -45,6 +45,7 @@ Game::Game() : window(sf::VideoMode(X_BLOCKS*64, Y_BLOCKS*64), "B O M B E R M A 
     TextManager::Load("Background", "../Graphics/Sprites/Blocks/BackgroundTile.png");
 
     TextManager::Load("bomb", "../Graphics/Sprites/Bomb/Bomb_f03.png");
+    TextManager::Load("flame", "/Users/bindas/Documents2/Projekt/Graphics/Sprites/Flame/Flame_f00.png");
 }
 
 Game::~Game() {
@@ -93,6 +94,7 @@ void Game::Run() {
 
         currentLevel->Update(DeltaTime);
         currentLevel->Draw();
+        bomberman->Draw();
 
         window.display();
         DeltaTime = GameClock.getElapsedTime().asSeconds() - frameStart;

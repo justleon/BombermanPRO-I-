@@ -15,6 +15,7 @@ protected:
     sf::Texture texture;
     sf::Vector2f location;
     float rotation;
+    bool destroyed;
 public:
     Entity(EntityController* controller);
     virtual ~Entity();
@@ -27,12 +28,16 @@ public:
     { this->SetLocation(location + delta); }
     inline void Rotate(const float& delta)
     { this->SetRotation(rotation + delta); }
+    void Destroy()
+    {destroyed = true;}
     virtual void Draw() = 0;
 
     inline sf::Vector2f GetLocation() const
     { return location; }
     inline float GetRotation() const
     { return rotation; }
+    inline bool IsDestroyed() const
+    {return destroyed;}
 
     void ResetController(EntityController* controller);
     virtual void Update(const float &deltaTime);

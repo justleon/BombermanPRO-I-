@@ -2,8 +2,8 @@
 // Created by Bartłomiej Binda on 21/05/2019.
 //
 
-#ifndef SFML_MAP_H
-#define SFML_MAP_H
+#ifndef SFML_BLOCK_HPP
+#define SFML_BLOCK_HPP
 
 #include "Entity.hpp"
 
@@ -38,4 +38,4 @@ public:
 };
 
 
-#endif //SFML_MAP_H
+#endif //SFML_BLOCK_HPP
