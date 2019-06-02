@@ -27,6 +27,8 @@ public:
 
     bool Remove(Entity *unit);
 
+    std::vector <Entity*> GetUnitsAtLocation(const sf::Vector2f &location);
+
     bool Exists(Entity *unit) const;
 
     std::vector<Entity*> GetCollidingTiles();

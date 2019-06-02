@@ -68,6 +68,18 @@ Explosion::Explosion() : Entity(new ExplosionController) {
 void Explosion::SetLocation(const sf::Vector2f &loc) {
     Entity::SetLocation(loc);
     flamesprite.setPosition(loc.x, loc.y);
+    auto units = Game::Instance().GetCurrentLevel()->GetUnitsAtLocation(loc);
+    for(auto *unit : units){
+        if(dynamic_cast<BombController*>(unit)){
+            unit->Destroy();
+        }
+        else{
+            auto *block = dynamic_cast<Block*>(unit);
+            if(block && block->GetType() == BlockType::Explosive){
+                unit->Destroy();
+            }
+        }
+    }
 }
 
 void Explosion::Draw() {
@@ -85,4 +97,7 @@ void ExplosionController::Update(const float &deltaTime) {
     flameTime -= deltaTime;
     if (flameTime <= 0)
         owner->Destroy();
+
 }
+
+
