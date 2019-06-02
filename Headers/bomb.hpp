@@ -56,4 +56,6 @@ public:
     virtual void Update(const float& deltaTime) override;
 };
 
+bool isSolid(const sf::Vector2f &);
+
 #endif //SFML_BOMB_HPP

@@ -49,15 +49,6 @@ bool Level::Remove(Entity *unit)
     return false;
 }
 
-std::vector<Entity *> Level::GetUnitsAtLocation(const sf::Vector2f &location) {
-    std::vector<Entity *> units;
-    for(auto *unit : units){
-        if(unit->GetLocation() == location)
-            units.push_back(unit);
-    }
-    return units;
-}
-
 bool Level::Exists(Entity *unit) const
 {
     return std::find(units.begin(), units.end(), unit) != units.end();
