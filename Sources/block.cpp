@@ -24,6 +24,11 @@ void Block::SetLocation(const sf::Vector2f &loc)
     bsprite.setPosition(loc.x, loc.y);
 }
 
+void Block::SetSprite(std::string whatsprite)
+{
+    bsprite.setTexture(*(TextManager::Get(whatsprite)));
+}
+
 void Block::Draw()
 {
     Game::Instance().GetWindow().draw(bsprite);

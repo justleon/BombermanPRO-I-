@@ -11,7 +11,7 @@
 
 #define TIME_FRAME 1/60.f
 
-Game::Game() : window(sf::VideoMode(X_BLOCKS*64, Y_BLOCKS*64), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level())
+Game::Game() : window(sf::VideoMode(X_BLOCKS*TILE_SIZE, Y_BLOCKS*TILE_SIZE), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level())
 {
     TextManager::Load("front0", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
     TextManager::Load("front1", "../Graphics/Sprites/Bomberman/Front/Bman_F_f01.png");
@@ -45,12 +45,16 @@ Game::Game() : window(sf::VideoMode(X_BLOCKS*64, Y_BLOCKS*64), "B O M B E R M A 
     TextManager::Load("Background", "../Graphics/Sprites/Blocks/BackgroundTile.png");
 
     TextManager::Load("bomb", "../Graphics/Sprites/Bomb/Bomb_f03.png");
-    TextManager::Load("flame", "/Users/bindas/Documents2/Projekt/Graphics/Sprites/Flame/Flame_f00.png");
+    TextManager::Load("flame", "../Graphics/Sprites/Flame/Flame_f00.png");
+
+    TextManager::Load("PUExp", "../Graphics/Sprites/Powerups/FlamePowerup.png");
+    TextManager::Load("PUBomb", "../Graphics/Sprites/Powerups/BombPowerup.png");
+    TextManager::Load("PUSpeed", "../Graphics/Sprites/Powerups/SpeedPowerup.png");
 }
 
 Game::~Game() {
-    auto textSize = TextManager::Cleanup();
-    std::cout << "Number of textures: " << textSize << std::endl;
+    /*auto textSize = TextManager::Cleanup();   powoduje błędy OpenGLa, może to nie jest do konca potrzebne?
+    std::cout << "Number of textures: " << textSize << std::endl;*/
     if(window.isOpen())
         window.close();
     if(currentLevel)
