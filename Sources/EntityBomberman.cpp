@@ -6,14 +6,14 @@
 #include "../Headers/Game.hpp"
 #include "../Headers/Images.hpp"
 #include "../Headers/block.hpp"
+#include "../Headers/PowerUp.hpp"
 
-EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController)
+EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController), direction(PlayerDir::PlayerDown)
 {
     //anim = GlobalAnimations[0];
     playerSprite.setTexture(*(TextManager::Get("front0")));
     playerSprite.setOrigin(32,92);
     //anim.SetTarget(playerSprite);
-    direction = PlayerDir::PlayerDown;
 }
 
 void EntityBomberman::SetLocation(const sf::Vector2f &loc)
@@ -30,6 +30,7 @@ void EntityBomberman::Draw()
 bool EntityBomberman::IsColliding()
 {
     sf::FloatRect collider(sf::Vector2f(location.x-17.5, location.y+5), sf::Vector2f(35, 25));
+    auto* controller_cast = dynamic_cast<EntityBombermanController*>(controller);
 
     auto tiles = Game::Instance().GetCurrentLevel()->GetCollidingTiles();
     for(auto* tile : tiles)
@@ -41,8 +42,15 @@ bool EntityBomberman::IsColliding()
                 return true;
         } else{
             sf::FloatRect tileCollider(sf::Vector2f(tile->GetLocation().x, tile->GetLocation().y), sf::Vector2f(TILE_SIZE/2, TILE_SIZE/2));
-            if(tileCollider.intersects(collider))
+            if(tileCollider.intersects(collider)) {
+                auto* powerup_cast = dynamic_cast<PowerUp<int>*>(tile);
+                if(powerup_cast->GetType() == BlockType::PUSpeed){
+                    *(controller_cast->GetSpeed()) += powerup_cast->GetValue();
+                } else if(powerup_cast->GetType() == BlockType::PUExp){
+                    *(controller_cast->GetRadius()) += powerup_cast->GetValue();
+                }
                 tile->Destroy();
+            }
         }
     }
 
@@ -77,7 +85,7 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     }
 }
 
-EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200), bombPeriod(0.8f), bombTime(0.8f)
+EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200), bombPeriod(0.8f), bombTime(0.8f), bombRadius(1)
 {
 
 }
@@ -155,9 +163,9 @@ bool EntityBombermanController::MoveRight(const float& delta, EntityBomberman* o
 
 void EntityBombermanController::PlantBomb(const float &delta) {
     bombTime = bombPeriod;
-    auto *bomb = new Bomb();
+    auto *bomb = new Bomb(bombRadius);
     sf::Vector2f loc = owner->GetLocation();
-    loc.y+= 10;
+    loc.y += 10;
     loc.x = (int(loc.x) / 64)*64;
     loc.y = (int(loc.y) / 64)*64;
     bomb->SetLocation(loc);

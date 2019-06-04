@@ -4,8 +4,10 @@
 
 #include "../Headers/bomb.hpp"
 
+void setRadius(sf::Vector2f loc, int rad, int x, int y);
 
-Bomb::Bomb() : Entity(new BombController) {
+Bomb::Bomb(int rad) : Entity(new BombController) {
+    radius = rad;
     bombsprite.setTexture(*(TextManager::Get("bomb")));
     bombsprite.setOrigin(-10, -10);
 }
@@ -27,6 +29,7 @@ BombController::BombController()
 }
 
 void BombController::Update(const float &deltaTime) {
+    auto* owner_cast = dynamic_cast<Bomb*>(owner);
     explodeTime -= deltaTime;
     if (explodeTime <= 0){
         owner->Destroy();
@@ -37,34 +40,18 @@ void BombController::Update(const float &deltaTime) {
             if(!isSolid(blockloc))
                 Game::Instance().GetCurrentLevel()->Add(explosion1);
         }
-        {
+        setRadius(owner->GetLocation(), owner_cast->radius, 0, 64);
+        setRadius(owner->GetLocation(), owner_cast->radius, 0, -64);
+        setRadius(owner->GetLocation(), owner_cast->radius, 64, 0);
+        setRadius(owner->GetLocation(), owner_cast->radius, -64, 0);
+
+        /*for(int i = 1; i-1 < owner_cast->radius; ++i){
             auto *explosion1 = new Explosion();
-            auto blockloc = owner->GetLocation() + sf::Vector2f(0, 64);
+            auto blockloc = owner->GetLocation() + sf::Vector2f(0, 64*i);
             explosion1->SetLocation(blockloc);
             if(!isSolid(blockloc))
                 Game::Instance().GetCurrentLevel()->Add(explosion1);
-        }
-        {
-            auto *explosion1 = new Explosion();
-            auto blockloc = owner->GetLocation() + sf::Vector2f(0, -64);
-            explosion1->SetLocation(blockloc);
-            if(!isSolid(blockloc))
-                Game::Instance().GetCurrentLevel()->Add(explosion1);
-        }
-        {
-            auto *explosion1 = new Explosion();
-            auto blockloc = owner->GetLocation() + sf::Vector2f(64, 0);
-            explosion1->SetLocation(blockloc);
-            if(!isSolid(blockloc))
-                Game::Instance().GetCurrentLevel()->Add(explosion1);
-        }
-        {
-            auto *explosion1 = new Explosion();
-            auto blockloc = owner->GetLocation() + sf::Vector2f(-64, 0);
-            explosion1->SetLocation(blockloc);
-            if(!isSolid(blockloc))
-                Game::Instance().GetCurrentLevel()->Add(explosion1);
-        }
+        }*/
     }
 
 }
@@ -125,4 +112,14 @@ bool isSolid(const sf::Vector2f &loc) {
         }
     }
     return false;
+}
+
+void setRadius(sf::Vector2f loc, int rad, int x, int y){
+    for(int i = 1; i-1 < rad; ++i){
+        auto *explosion1 = new Explosion();
+        auto blockloc = loc + sf::Vector2f(x*i, y*i);
+        explosion1->SetLocation(blockloc);
+        if(!isSolid(blockloc))
+            Game::Instance().GetCurrentLevel()->Add(explosion1);
+    }
 }

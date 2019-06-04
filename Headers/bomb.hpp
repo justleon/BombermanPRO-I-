@@ -15,11 +15,11 @@ class Bomb : public Entity
 private:
     sf::Sprite bombsprite;
 public:
-    Bomb();
+    Bomb(int rad);
+    int radius;
 
     virtual void SetLocation(const sf::Vector2f& loc) override;
     virtual void Draw() override;
-
 };
 
 class BombController : public EntityController

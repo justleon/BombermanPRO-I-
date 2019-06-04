@@ -134,17 +134,17 @@ void setMap(Level *currentLevel){
                 currentLevel->Add(block);
             }
             if(type == BlockType::PUBomb){
-                auto *powerup = new PowerUp<int>(BlockType::PUBomb, 1);
+                auto *powerup = new PowerUp<int>(BlockType::PUBomb, VAL_BOMB);
                 powerup->SetLocation(sf::Vector2f(x*TILE_SIZE+16,y*TILE_SIZE+16));
                 currentLevel->Add(powerup);
             }
             if(type == BlockType::PUExp){
-                auto *powerup = new PowerUp<int>(BlockType::PUExp, 1);
+                auto *powerup = new PowerUp<int>(BlockType::PUExp, VAL_BOMB);
                 powerup->SetLocation(sf::Vector2f(x*TILE_SIZE+16,y*TILE_SIZE+16));
                 currentLevel->Add(powerup);
             }
             if(type == BlockType::PUSpeed){
-                auto *powerup = new PowerUp<int>(BlockType::PUSpeed, 1);
+                auto *powerup = new PowerUp<int>(BlockType::PUSpeed, VAL_SPEED);
                 powerup->SetLocation(sf::Vector2f(x*TILE_SIZE+16,y*TILE_SIZE+16));
                 currentLevel->Add(powerup);
             }

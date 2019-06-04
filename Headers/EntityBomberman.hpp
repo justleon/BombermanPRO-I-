@@ -46,8 +46,12 @@ private:
     float playerMoveSpeed;
     const float bombPeriod;
     float bombTime;
+    int bombRadius;
 public:
     EntityBombermanController();
+
+    inline int* GetRadius() { return &bombRadius; }
+    inline float* GetSpeed() { return &playerMoveSpeed; }
 
     virtual void Update(const float& deltaTime) override;
 };
