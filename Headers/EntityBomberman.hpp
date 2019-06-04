@@ -23,7 +23,7 @@ private:
     //Animation anim;
     PlayerDir direction;
 public:
-    EntityBomberman();
+    EntityBomberman(bool first);
 
     virtual void SetLocation(const sf::Vector2f& loc) override;
     virtual void Draw() override;
@@ -47,8 +47,9 @@ private:
     const float bombPeriod;
     float bombTime;
     int bombRadius;
+    bool isFirst;
 public:
-    EntityBombermanController();
+    EntityBombermanController(bool first);
 
     inline int* GetRadius() { return &bombRadius; }
     inline float* GetSpeed() { return &playerMoveSpeed; }

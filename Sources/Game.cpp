@@ -78,9 +78,13 @@ void Game::Run() {
 
     setMap(currentLevel);
 
-    auto* bomberman = new EntityBomberman();
+    auto* bomberman = new EntityBomberman(true);
     bomberman->SetLocation(sf::Vector2f(96,96));
     currentLevel->Add(bomberman);
+
+    auto* bomberman2 = new EntityBomberman(false);
+    bomberman2->SetLocation(sf::Vector2f(880,580));
+    currentLevel->Add(bomberman2);
 
     //tlo
     sf::Color bColor(40, 40, 40);

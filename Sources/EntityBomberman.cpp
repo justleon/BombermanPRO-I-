@@ -8,7 +8,7 @@
 #include "../Headers/block.hpp"
 #include "../Headers/PowerUp.hpp"
 
-EntityBomberman::EntityBomberman() : Entity(new EntityBombermanController), direction(PlayerDir::PlayerDown)
+EntityBomberman::EntityBomberman(bool first) : Entity(new EntityBombermanController(first)), direction(PlayerDir::PlayerDown)
 {
     //anim = GlobalAnimations[0];
     playerSprite.setTexture(*(TextManager::Get("front0")));
@@ -85,7 +85,7 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     }
 }
 
-EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200), bombPeriod(0.8f), bombTime(0.8f), bombRadius(1)
+EntityBombermanController::EntityBombermanController(bool first) : playerMoveSpeed(200), bombPeriod(0.8f), bombTime(0.8f), bombRadius(1), isFirst(first)
 {
 
 }
@@ -98,22 +98,41 @@ EntityBombermanController::EntityBombermanController() : playerMoveSpeed(200), b
 void EntityBombermanController::Update(const float &deltaTime) {
     auto* owner_cast = dynamic_cast<EntityBomberman*>(owner);
     bombTime -= deltaTime;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-        this->MoveUp(-playerMoveSpeed * deltaTime, owner_cast);
+    if(isFirst){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+            this->MoveUp(-playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+            this->MoveDown(playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+            this->MoveLeft(-playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && bombTime <= 0){
+            PlantBomb(deltaTime);
+        }
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-        this->MoveDown(playerMoveSpeed * deltaTime, owner_cast);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-        this->MoveLeft(-playerMoveSpeed * deltaTime, owner_cast);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-        this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
+    else{
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+            this->MoveUp(-playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+            this->MoveDown(playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+            this->MoveLeft(-playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+            this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && bombTime <= 0){
+            PlantBomb(deltaTime);
+        }
     }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && bombTime <= 0){
-        PlantBomb(deltaTime);
-    }
     //owner_cast->GetAnimation().Update(deltaTime);
 }
 
