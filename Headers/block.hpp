@@ -15,7 +15,8 @@ enum BlockType{
     Solid = 2,
     PUExp = 3,
     PUBomb = 4,
-    PUSpeed = 5
+    PUSpeed = 5,
+    Flame = 6
 };
 
 class Block : public Entity
