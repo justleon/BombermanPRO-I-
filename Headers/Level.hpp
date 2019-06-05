@@ -11,8 +11,8 @@
 #include "../Headers/Entity.hpp"
 #include "../Headers/block.hpp"
 
-const int X_BLOCKS = 15;
-const int Y_BLOCKS = 11;
+#define X_BLOCKS 15
+#define Y_BLOCKS 11
 
 class Level
 {
@@ -25,6 +25,8 @@ public:
 
     bool Add(Entity *unit);
 
+    inline void AddPlayer(Entity* player) { players.push_back(player); }
+
     bool Remove(Entity *unit);
 
     std::vector <Entity*> GetUnitsAtLocation(const sf::Vector2f &location);
@@ -32,6 +34,7 @@ public:
     bool Exists(Entity *unit) const;
 
     std::vector<Entity*> GetCollidingTiles();
+    std::vector<Entity*> GetThreat();
 
     std::size_t Cleanup();
 
@@ -40,7 +43,8 @@ public:
     void Draw();
     inline std::size_t Count() const { return units.size(); }
 private:
-    Vunits units;		// Aktorzy na scenie.
+    Vunits units;		// Wszystkie obiekty poza graczami
+    Vunits players;     // Gracze na scenie
 };
 
 void setMap(Level *currentLevel);

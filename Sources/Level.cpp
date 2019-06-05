@@ -3,6 +3,7 @@
 //
 
 #include "../Headers/Level.hpp"
+#include "../Headers/EntityBomberman.hpp"
 #include "../Headers/block.hpp"
 #include "../Headers/PowerUp.hpp"
 
@@ -68,11 +69,26 @@ std::vector<Entity*> Level::GetCollidingTiles()
     return tiles;
 }
 
+std::vector<Entity*> Level::GetThreat()
+{
+    std::vector<Entity*> threats;
+    for(auto* fire : units)
+    {
+        auto* entity = dynamic_cast<Explosion*>(fire);
+        if(entity){
+            threats.push_back(entity);
+        }
+    }
+    return threats;
+}
+
 std::size_t Level::Cleanup()
 {
     std::size_t unitsCount = units.size();
     for (auto *unit : units)
         delete unit;
+    for(auto* player : players)
+        delete player;
     return unitsCount;
 }
 
@@ -85,12 +101,22 @@ void Level::Update(const float &deltaTime) {
             i--;
         }
     }
+    for (auto i = 0u; i < players.size(); i++) {
+        players[i]->Update(deltaTime);
+        if (players[i]->IsDestroyed()){
+            delete players[i];
+            players.erase(players.begin() + i);
+            i--;
+        }
+    }
 }
 
 void Level::Draw()
 {
     for (auto *unit : units)
         unit->Draw();
+    for (auto *player : players)
+        player->Draw();
 }
 
 void setMap(Level *currentLevel){

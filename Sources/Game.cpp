@@ -69,7 +69,7 @@ void Game::Run() {
     for(auto y=0u; y<15; ++y){
         for(auto x=0u; x<20; ++x){
             auto *block = new Block(BlockType::Background);
-            block->SetLocation(sf::Vector2f(x*40,y*40));
+            block->SetLocation(sf::Vector2f(x*TILE_SIZE,y*TILE_SIZE));
             currentLevel->Add(block);
         }
     }
@@ -80,11 +80,11 @@ void Game::Run() {
 
     auto* bomberman = new EntityBomberman(true);
     bomberman->SetLocation(sf::Vector2f(96,96));
-    currentLevel->Add(bomberman);
-
     auto* bomberman2 = new EntityBomberman(false);
     bomberman2->SetLocation(sf::Vector2f(865,585));
-    currentLevel->Add(bomberman2);
+
+    currentLevel->AddPlayer(bomberman);
+    currentLevel->AddPlayer(bomberman2);
 
     //tlo
     sf::Color bColor(40, 40, 40);
@@ -102,7 +102,6 @@ void Game::Run() {
 
         currentLevel->Update(DeltaTime);
         currentLevel->Draw();
-        bomberman->Draw();
 
         window.display();
         DeltaTime = GameClock.getElapsedTime().asSeconds() - frameStart;
