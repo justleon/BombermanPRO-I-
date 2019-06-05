@@ -41,7 +41,7 @@ public:
     void Update(const float &deltaTime);
 
     void Draw();
-    inline std::size_t Count() const { return units.size(); }
+    inline std::size_t Count() const { return players.size(); }
 private:
     Vunits units;		// Wszystkie obiekty poza graczami
     Vunits players;     // Gracze na scenie

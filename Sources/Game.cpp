@@ -2,6 +2,8 @@
 // Created by Leon on 2019-05-12.
 //
 
+#include <SFML/Window/Mouse.hpp>
+#include <string>
 #include "../Headers/Game.hpp"
 #include "../Headers/Images.hpp"
 #include "../Headers/Entity.hpp"
@@ -11,34 +13,13 @@
 
 #define TIME_FRAME 1/60.f
 
-Game::Game() : window(sf::VideoMode(X_BLOCKS*TILE_SIZE, Y_BLOCKS*TILE_SIZE), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level())
+Game::Game() : window(sf::VideoMode(X_BLOCKS * TILE_SIZE, Y_BLOCKS * TILE_SIZE), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level)
 {
+    TextManager::Load("titlescreen", "../Graphics/Sprites/title_flat.jpg");
+
     TextManager::Load("front0", "../Graphics/Sprites/Bomberman/Front/Bman_F_f00.png");
-    TextManager::Load("front1", "../Graphics/Sprites/Bomberman/Front/Bman_F_f01.png");
-    TextManager::Load("front2", "../Graphics/Sprites/Bomberman/Front/Bman_F_f02.png");
-    TextManager::Load("front3", "../Graphics/Sprites/Bomberman/Front/Bman_F_f03.png");
-    TextManager::Load("front4", "../Graphics/Sprites/Bomberman/Front/Bman_F_f04.png");
-    TextManager::Load("front5", "../Graphics/Sprites/Bomberman/Front/Bman_F_f05.png");
-    TextManager::Load("front6", "../Graphics/Sprites/Bomberman/Front/Bman_F_f06.png");
-    TextManager::Load("front7", "../Graphics/Sprites/Bomberman/Front/Bman_F_f07.png");
-
     TextManager::Load("back0", "../Graphics/Sprites/Bomberman/Back/Bman_B_f00.png");
-    TextManager::Load("back1", "../Graphics/Sprites/Bomberman/Back/Bman_B_f01.png");
-    TextManager::Load("back2", "../Graphics/Sprites/Bomberman/Back/Bman_B_f02.png");
-    TextManager::Load("back3", "../Graphics/Sprites/Bomberman/Back/Bman_B_f03.png");
-    TextManager::Load("back4", "../Graphics/Sprites/Bomberman/Back/Bman_B_f04.png");
-    TextManager::Load("back5", "../Graphics/Sprites/Bomberman/Back/Bman_B_f05.png");
-    TextManager::Load("back6", "../Graphics/Sprites/Bomberman/Back/Bman_B_f06.png");
-    TextManager::Load("back7", "../Graphics/Sprites/Bomberman/Back/Bman_B_f07.png");
-
     TextManager::Load("side0", "../Graphics/Sprites/Bomberman/Side/Bman_F_f00.png");
-    TextManager::Load("side1", "../Graphics/Sprites/Bomberman/Side/Bman_F_f01.png");
-    TextManager::Load("side2", "../Graphics/Sprites/Bomberman/Side/Bman_F_f02.png");
-    TextManager::Load("side3", "../Graphics/Sprites/Bomberman/Side/Bman_F_f03.png");
-    TextManager::Load("side4", "../Graphics/Sprites/Bomberman/Side/Bman_F_f04.png");
-    TextManager::Load("side5", "../Graphics/Sprites/Bomberman/Side/Bman_F_f05.png");
-    TextManager::Load("side6", "../Graphics/Sprites/Bomberman/Side/Bman_F_f06.png");
-    TextManager::Load("side7", "../Graphics/Sprites/Bomberman/Side/Bman_F_f07.png");
 
     TextManager::Load("ExpBlock", "../Graphics/Sprites/Blocks/ExplodableBlock.png");
     TextManager::Load("SolidBlock", "../Graphics/Sprites/Blocks/SolidBlock.png");
@@ -53,16 +34,75 @@ Game::Game() : window(sf::VideoMode(X_BLOCKS*TILE_SIZE, Y_BLOCKS*TILE_SIZE), "B 
 }
 
 Game::~Game() {
-    /*auto textSize = TextManager::Cleanup();   powoduje błędy OpenGLa, może to nie jest do konca potrzebne?
-    std::cout << "Number of textures: " << textSize << std::endl;*/
     if(window.isOpen())
         window.close();
     if(currentLevel)
         delete currentLevel;
 }
 
-void Game::Run() {
+void Game::TitleScreen()
+{
     game_status = Status::Running;
+    sf::Font font;
+    font.loadFromFile("../Resources/arial-narrow.ttf");
+    sf::Sprite mainmenu;
+    mainmenu.setTexture(*(TextManager::Get("titlescreen")));
+    mainmenu.scale(1.68, 1.25);
+
+    sf::Text menu_text[3];
+    std::string str[] = { "Play!", "Credits", "Exit" };
+    for(int i = 0; i < 3; ++i){
+        menu_text[i].setFont(font);
+        menu_text[i].setCharacterSize(45);
+        menu_text[i].setPosition((X_BLOCKS*TILE_SIZE/2 - 35), 400 + i*70);
+        menu_text[i].setString(str[i]);
+    }
+
+    int key = 0, prev_key = 0;
+    while(game_status != Status::Exit)
+    {
+        sf::Event event;
+        while(window.pollEvent(event))
+        {
+            if(event.type == sf::Event::Closed){
+                game_status = Status::Exit;
+            }
+            if(event.type == sf::Event::KeyPressed){
+                if(event.key.code == sf::Keyboard::Escape)
+                    game_status = Status::Exit;
+
+                if(event.key.code == sf::Keyboard::S){
+                    prev_key = key;
+                    if(key<4) ++key;
+                    if(key>=3) key = 0;
+                }
+                if(event.key.code == sf::Keyboard::W){
+                    prev_key = key;
+                    if(key >= 0) --key;
+                    if(key < 0) key = 2;
+                }
+                if(event.key.code == sf::Keyboard::Enter){
+                    if(key == 0) Run();
+                    else if(key == 2)
+                        game_status = Status::Exit;
+                }
+            }
+        }
+
+        menu_text[key].setColor(sf::Color(165,211,111));
+        menu_text[prev_key].setColor(sf::Color(255,255,255));
+        window.clear(sf::Color(40,40,40));
+        window.draw(mainmenu);
+        for(int i = 0; i < 3; ++i)
+            window.draw(menu_text[i]);
+
+        window.display();
+
+    }
+
+}
+
+void Game::Run() {
     sf::Clock GameClock;
     float DeltaTime = TIME_FRAME;
 
@@ -89,7 +129,7 @@ void Game::Run() {
     //tlo
     sf::Color bColor(40, 40, 40);
 
-    while(game_status != Status::Exit) {
+    while((game_status != Status::Exit) && currentLevel->Count() == 2) {
         float frameStart = GameClock.getElapsedTime().asSeconds();
         sf::Event event;
 

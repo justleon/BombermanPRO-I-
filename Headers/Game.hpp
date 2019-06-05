@@ -22,6 +22,7 @@ class Game {
 public:
     ~Game();
     void Run();
+    void TitleScreen();
     inline sf::RenderWindow& GetWindow() { return window; }
     inline Status GetStatus() const { return game_status; }
     inline Level *GetCurrentLevel() { return currentLevel; }

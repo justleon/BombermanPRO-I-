@@ -2,7 +2,7 @@
 
 int main() {
     auto &game = Game::Instance();
-    game.Run();
+    game.TitleScreen();
 
     return 0;
 }
