@@ -25,6 +25,7 @@ private:
     BlockType type;
 public:
     explicit Block(BlockType);
+    ~Block();
 
     virtual void SetLocation(const sf::Vector2f& loc) override;
     void SetSprite(std::string whatsprite);

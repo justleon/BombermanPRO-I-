@@ -15,8 +15,9 @@ class Bomb : public Entity
 private:
     sf::Sprite bombsprite;
 public:
-    Bomb(int rad);
-    int radius;
+    Bomb(int* rad, int* bombs);
+    int* radius;
+    int* numOfBombs;
 
     virtual void SetLocation(const sf::Vector2f& loc) override;
     virtual void Draw() override;
@@ -55,7 +56,5 @@ public:
 
     virtual void Update(const float& deltaTime) override;
 };
-
-bool isSolid(const sf::Vector2f &);
 
 #endif //SFML_BOMB_HPP

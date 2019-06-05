@@ -97,7 +97,7 @@ void setMap(Level *currentLevel){
 
     std::vector<std::vector<int>> blocks;
     std::ifstream myMapFile;
-    myMapFile.open("../Maps/map1.txt");
+    myMapFile.open("../Maps/map2.txt");
     while (!myMapFile.eof()) {
         for(int i=0; i<Y_BLOCKS; i++){
             std::vector<int> tmpVec;

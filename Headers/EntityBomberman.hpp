@@ -45,6 +45,7 @@ private:
     void PlantBomb(const float& delta);
     float playerMoveSpeed;
     const float bombPeriod;
+    int bombNum;
     float bombTime;
     int bombRadius;
     bool isFirst;
@@ -53,6 +54,7 @@ public:
 
     inline int* GetRadius() { return &bombRadius; }
     inline float* GetSpeed() { return &playerMoveSpeed; }
+    inline int* GetBombNum() { return &bombNum; }
 
     virtual void Update(const float& deltaTime) override;
 };

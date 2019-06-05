@@ -6,6 +6,9 @@
 #include "../Headers/EntityBomberman.hpp"
 #include "../Headers/Game.hpp"
 #include "../Headers/Images.hpp"
+#include "../Headers/PowerUp.hpp"
+#include <ctime>
+#include <cstdlib>
 
 Block::Block(BlockType btype) : Entity(new BlockController), type(btype)
 {
@@ -16,6 +19,28 @@ Block::Block(BlockType btype) : Entity(new BlockController), type(btype)
     else if(type == BlockType::Solid)
         bsprite.setTexture(*(TextManager::Get("SolidBlock")));
     //bsprite.setScale(40.f/64.f, 40.f/64.f);
+}
+
+Block::~Block()
+{
+    if(BlockType::Explosive == type)
+    {
+        srand(time(0));
+        int chance = (rand() % 100 + 1) + (rand() % 25);
+        if(chance > 14 && chance <= 34){
+            auto *powerup = new PowerUp<int>(BlockType::PUBomb, VAL_BOMB);
+            powerup->SetLocation(sf::Vector2f(this->GetLocation().x+16, this->GetLocation().y+16));
+            Game::Instance().GetCurrentLevel()->Add(powerup);
+        } else if(chance > 34 && chance <= 64){
+            auto *powerup = new PowerUp<int>(BlockType::PUSpeed, VAL_SPEED);
+            powerup->SetLocation(sf::Vector2f(this->GetLocation().x+16, this->GetLocation().y+16));
+            Game::Instance().GetCurrentLevel()->Add(powerup);
+        } else if(chance > 64 && chance <= 84){
+            auto *powerup = new PowerUp<int>(BlockType::PUExp, VAL_BOMB);
+            powerup->SetLocation(sf::Vector2f(this->GetLocation().x+16, this->GetLocation().y+16));
+            Game::Instance().GetCurrentLevel()->Add(powerup);
+        }
+    }
 }
 
 void Block::SetLocation(const sf::Vector2f &loc)

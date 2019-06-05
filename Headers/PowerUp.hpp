@@ -9,7 +9,7 @@
 #include "Images.hpp"
 #include "Game.hpp"
 
-#define VAL_SPEED 50
+#define VAL_SPEED 20
 #define VAL_BOMB 1
 
 template <typename T>
