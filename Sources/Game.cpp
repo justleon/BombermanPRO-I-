@@ -38,8 +38,6 @@ Game::Game() : window(sf::VideoMode(X_BLOCKS * TILE_SIZE, Y_BLOCKS * TILE_SIZE),
 Game::~Game() {
     if(window.isOpen())
         window.close();
-    if(currentLevel)
-        delete currentLevel;
 }
 
 void Game::TitleScreen()

@@ -128,7 +128,7 @@ void EntityBombermanController::Update(const float &deltaTime) {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
             this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::RControl) && (bombTime <= 0) && (bombNum > 0)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::B) && (bombTime <= 0) && (bombNum > 0)){
             PlantBomb(deltaTime);
         }
     }
