@@ -1,0 +1,83 @@
+\hypertarget{class_bomb}{}\section{Bomb Class Reference}
+\label{class_bomb}\index{Bomb@{Bomb}}
+
+
+Class to create and draw bombs by bomberman character.  
+
+
+
+
+{\ttfamily \#include $<$bomb.\+hpp$>$}
+
+Inheritance diagram for Bomb\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bomb}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bomb_abaf0b33ded4955358ae6af1a0419b732}\label{class_bomb_abaf0b33ded4955358ae6af1a0419b732}} 
+{\bfseries Bomb} (int $\ast$rad, int $\ast$bombs)
+\item 
+\mbox{\Hypertarget{class_bomb_acb5962c43f9ce5d9ce63791fe66fcacb}\label{class_bomb_acb5962c43f9ce5d9ce63791fe66fcacb}} 
+virtual void {\bfseries Set\+Location} (const sf\+::\+Vector2f \&loc) override
+\item 
+virtual void \mbox{\hyperlink{class_bomb_a307a7d181cd802b6ae7fb41505fd841f}{Draw}} () override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$ \mbox{\hyperlink{class_bomb_a7a23eb43b769a5d5fb79e76e6e969d5b}{radius}}
+\item 
+int $\ast$ \mbox{\hyperlink{class_bomb_a5ad60c615e2101551eae9197a84c16b9}{num\+Of\+Bombs}}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_bomb_a9a227890e3f828b8dfd8bd3342a68dbd}{bombsprite}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class to create and draw bombs by bomberman character. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bomb_a307a7d181cd802b6ae7fb41505fd841f}\label{class_bomb_a307a7d181cd802b6ae7fb41505fd841f}} 
+\index{Bomb@{Bomb}!Draw@{Draw}}
+\index{Draw@{Draw}!Bomb@{Bomb}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Bomb\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Base virtual method to draw objects (units) 
+
+Implements \mbox{\hyperlink{class_entity_a1d006ae3028ba4ddfc9b4f202ccddf55}{Entity}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bomb_a9a227890e3f828b8dfd8bd3342a68dbd}\label{class_bomb_a9a227890e3f828b8dfd8bd3342a68dbd}} 
+\index{Bomb@{Bomb}!bombsprite@{bombsprite}}
+\index{bombsprite@{bombsprite}!Bomb@{Bomb}}
+\subsubsection{\texorpdfstring{bombsprite}{bombsprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Bomb\+::bombsprite\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_bomb}{Bomb}} sf\+::sprite \mbox{\Hypertarget{class_bomb_a5ad60c615e2101551eae9197a84c16b9}\label{class_bomb_a5ad60c615e2101551eae9197a84c16b9}} 
+\index{Bomb@{Bomb}!numOfBombs@{numOfBombs}}
+\index{numOfBombs@{numOfBombs}!Bomb@{Bomb}}
+\subsubsection{\texorpdfstring{numOfBombs}{numOfBombs}}
+{\footnotesize\ttfamily int$\ast$ Bomb\+::num\+Of\+Bombs}
+
+number of bombs that bomberman has \mbox{\Hypertarget{class_bomb_a7a23eb43b769a5d5fb79e76e6e969d5b}\label{class_bomb_a7a23eb43b769a5d5fb79e76e6e969d5b}} 
+\index{Bomb@{Bomb}!radius@{radius}}
+\index{radius@{radius}!Bomb@{Bomb}}
+\subsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily int$\ast$ Bomb\+::radius}
+
+the range of bomb\textquotesingle{}s explosion (flames) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/bomb.\+hpp\end{DoxyCompactItemize}

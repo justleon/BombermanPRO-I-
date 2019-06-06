@@ -1,0 +1,99 @@
+\hypertarget{class_game}{}\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+Class for game instance.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312}{Run}} ()
+\item 
+\mbox{\Hypertarget{class_game_a01a944d087a3af80bab84016d5792f36}\label{class_game_a01a944d087a3af80bab84016d5792f36}} 
+void {\bfseries Title\+Screen} ()
+\item 
+\mbox{\Hypertarget{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}\label{class_game_aeef0f3e9e8d8f2efeb75c10e1dda4ef2}} 
+void {\bfseries Game\+Over} ()
+\item 
+\mbox{\Hypertarget{class_game_ad7ed2e57852504912ee3b7352ab17178}\label{class_game_ad7ed2e57852504912ee3b7352ab17178}} 
+sf\+::\+Render\+Window \& {\bfseries Get\+Window} ()
+\item 
+\mbox{\Hypertarget{class_game_acab123b8d50f20a35d4810749dab5188}\label{class_game_acab123b8d50f20a35d4810749dab5188}} 
+Status {\bfseries Get\+Status} () const
+\item 
+\mbox{\Hypertarget{class_game_ab9f78b8e0b69bdfedf3041988e6d4407}\label{class_game_ab9f78b8e0b69bdfedf3041988e6d4407}} 
+\mbox{\hyperlink{class_level}{Level}} $\ast$ {\bfseries Get\+Current\+Level} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game}{Game}} \& \mbox{\hyperlink{class_game_a387b06ed773b24ebb05126001614d4bc}{Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Render\+Window \mbox{\hyperlink{class_game_a223de215aeb661cd423ac145756cc730}{window}}
+\item 
+Status \mbox{\hyperlink{class_game_a6312a6183e4e13ba6e413c02d06f3f84}{game\+\_\+status}}
+\item 
+\mbox{\hyperlink{class_level}{Level}} $\ast$ \mbox{\hyperlink{class_game_a29bbdc3d17b8f654a6d74191f4cf0484}{current\+Level}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_game_af729561d89036f0c841bc1a428dc43cf}{font}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for game instance. 
+
+Class includes window for game, game status. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_a387b06ed773b24ebb05126001614d4bc}\label{class_game_a387b06ed773b24ebb05126001614d4bc}} 
+\index{Game@{Game}!Instance@{Instance}}
+\index{Instance@{Instance}!Game@{Game}}
+\subsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_game}{Game}}\& Game\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\hyperlink{class_game}{Game}} constructor is private because we have only one game. That\textquotesingle{}s why we need game instance to refer to. \mbox{\Hypertarget{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312}\label{class_game_a96341ca5b54d90adc3ecb3bf0bcd2312}} 
+\index{Game@{Game}!Run@{Run}}
+\index{Run@{Run}!Game@{Game}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Game\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method that runs the whole game 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_a29bbdc3d17b8f654a6d74191f4cf0484}\label{class_game_a29bbdc3d17b8f654a6d74191f4cf0484}} 
+\index{Game@{Game}!currentLevel@{currentLevel}}
+\index{currentLevel@{currentLevel}!Game@{Game}}
+\subsubsection{\texorpdfstring{currentLevel}{currentLevel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_level}{Level}}$\ast$ Game\+::current\+Level\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_level}{Level}} for all the Textures to add \mbox{\Hypertarget{class_game_af729561d89036f0c841bc1a428dc43cf}\label{class_game_af729561d89036f0c841bc1a428dc43cf}} 
+\index{Game@{Game}!font@{font}}
+\index{font@{font}!Game@{Game}}
+\subsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily sf\+::\+Font Game\+::font\hspace{0.3cm}{\ttfamily [private]}}
+
+sf\+:Font for menu \mbox{\Hypertarget{class_game_a6312a6183e4e13ba6e413c02d06f3f84}\label{class_game_a6312a6183e4e13ba6e413c02d06f3f84}} 
+\index{Game@{Game}!game\_status@{game\_status}}
+\index{game\_status@{game\_status}!Game@{Game}}
+\subsubsection{\texorpdfstring{game\_status}{game\_status}}
+{\footnotesize\ttfamily Status Game\+::game\+\_\+status\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_game}{Game}} status. Status after constructor is Init (Initializing) \mbox{\Hypertarget{class_game_a223de215aeb661cd423ac145756cc730}\label{class_game_a223de215aeb661cd423ac145756cc730}} 
+\index{Game@{Game}!window@{window}}
+\index{window@{window}!Game@{Game}}
+\subsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily sf\+::\+Render\+Window Game\+::window\hspace{0.3cm}{\ttfamily [private]}}
+
+Window for our game with resolution of (X\+\_\+\+B\+L\+O\+C\+KS $\ast$ T\+I\+L\+E\+\_\+\+S\+I\+ZE / Y\+\_\+\+B\+L\+O\+C\+KS $\ast$ T\+I\+L\+E\+\_\+\+S\+I\+ZE) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Game.\+hpp\end{DoxyCompactItemize}

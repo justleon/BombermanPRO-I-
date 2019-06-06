@@ -21,9 +21,6 @@ bool Level::Add(Entity *unit)
 {
     if (unit)
     {
-        /*	Sprawdzamy czy przypadkiem podany unit
-            nie znajduje się już na scenie.
-        */
         if (!this->Exists(unit))
         {
             units.push_back(unit);
@@ -37,9 +34,6 @@ bool Level::Remove(Entity *unit)
 {
     if (unit)
     {
-        /*	Sprawdzamy czy unit jest na scenie.
-            Jeśli tak to go usuwamy.
-        */
         auto unitIter = std::find(units.begin(), units.end(), unit);
         if (unitIter != units.end())
         {

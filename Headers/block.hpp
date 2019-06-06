@@ -18,29 +18,33 @@ enum BlockType{
     PUSpeed = 5
 };
 
+/// Manages all blocks (loading sprites, setting location, drawing)
 class Block : public Entity
 {
 private:
-    sf::Sprite bsprite;
-    BlockType type;
+    sf::Sprite bsprite; /** Block sf::sprite */
+    BlockType type; /** Type of the block (enum) */
 public:
     explicit Block(BlockType);
     ~Block();
-
+    /** Sets location of block in location (loc) */
     virtual void SetLocation(const sf::Vector2f& loc) override;
+    /** Gets and sets the block's texture  */
     void SetSprite(std::string whatsprite);
+    /** Draws block */
     virtual void Draw() override;
 
     inline BlockType GetType() const { return type; }
     inline sf::Sprite GetSprite() const { return bsprite; }
 };
 
+/// Controller for blocks
 class BlockController : public EntityController
 {
 
 public:
     explicit BlockController();
-
+    /** Controls time (updates deltaTime) */
     virtual void Update(const float& deltaTime) override;
 };
 

@@ -9,59 +9,36 @@
 
 #include <unordered_map>
 
-// Klasa do zarządzania teksturami
-
+/// Class to manage textures
 class TextManager {
 public:
+    /** typedef for our texture container */
     typedef std::unordered_map<std::string, sf::Texture *> text_um;
-
-    //	Destruktor - zwalnia cala pamiec, wszystkie pozostale tekstury
+    /** Destructor. Deletes all the textures (cleaning up) */
     ~TextManager();
-
-    //  Menedzer tekstur to singleton, zabraniamy kopiowania tego obiektu.
-
+    /** TextManager is singleton, we forbid coppying it */
     TextManager(const TextManager &Next) = delete;
     void operator=(const TextManager &Next) = delete;
-
-    /*	Statyczna metoda, ktora laduje teksture do pamieci i ustawia ją pod kluczem
-    podanym w [textureName]. Jeśli textura o tej nazwie już istniała, to zamieniamy ją.
-    Robimy to w taki sposób, by nie "psuć" spritów, które już korzystają z tamtej tekstury.
-*/
+      /** Loads textures and sets them by key Value (textureName). If there already exists one we change it. */
     static sf::Texture* Load(const std::string &textureName, const std::string &texturePath);
-
-/*	Usuwa teksture o podanej nazwie [textureName] z pamięci.
-*/
+    /** Removes texture by name from text_map */
     static bool Unload(const std::string &textureName);
-
-/*	Usuwa wszystkie tekstury z pamięci.
-    Zwraca ilość usuniętych tekstur.
-*/
+    /** Removes all textures. returns the number of removed elements */
     static std::size_t Cleanup();
-
-/*	Pobiera teksture ze zbioru, jednak gdy jeszcze nie została ona wczytana
-    to zwróci nullptr.
-*/
+    /** Gets a texture by name, if it hasn't been loaded before it returns nullptr */
     static sf::Texture* Get(const std::string &textureName);
-
-/*	Sprawdza czy tekstura znajduje się w zasobach.
-*/
+    /** Checks whether the Texture has been loaded before */
     inline static bool Exists(const std::string &textureName) { return TextManager::Get(textureName) != nullptr; }
 
 private:
-    /*	Konstruktor menedzera tekstur.
-        Jest prywatny ze względu na to, że cała klasa jest singletonem.
-    */
+    /** Private constructor because it's a singletone class. */
     TextManager();
-
-    /*	Tworzy pojedynczą instancję klasy TextManager i ją zwraca.
-        Ta metoda jest prywatna, ze względu na to, że zostawiamy zarządzanie
-        klasą metodom statycznym.
-    */
+    /** Creates a single instance of TextManager. It's private, because we manage Textures with static methods. */
     inline static TextManager& Instance() {
         static TextManager instance;
         return instance;
     }
-
+    /** container for our textures */
     text_um	text_map;		// Zbiór tekstur.
 };
 

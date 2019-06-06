@@ -116,8 +116,6 @@ void Game::Run() {
         }
     }
 
-    // Wywolanie load i zapamietanie tekstury
-
     setMap(currentLevel);
 
     auto* bomberman = new EntityBomberman(true);

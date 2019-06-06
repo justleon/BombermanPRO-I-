@@ -1,0 +1,155 @@
+\hypertarget{class_entity}{}\section{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+
+
+Abstact class used to create units on \mbox{\hyperlink{class_level}{Level}}.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_ab076af15dcbbda1a1f6ef0da746919fb}{Entity}} (\mbox{\hyperlink{class_entity_controller}{Entity\+Controller}} $\ast$\mbox{\hyperlink{class_entity_aae95fabac07322ac31d03b582f74f393}{controller}})
+\item 
+\mbox{\Hypertarget{class_entity_a416ff8839e6a72e40ee3bc0f33d4d8da}\label{class_entity_a416ff8839e6a72e40ee3bc0f33d4d8da}} 
+virtual void {\bfseries Set\+Location} (const sf\+::\+Vector2f \&loc)
+\item 
+\mbox{\Hypertarget{class_entity_aeb5e6b872db402526299469a04155ea3}\label{class_entity_aeb5e6b872db402526299469a04155ea3}} 
+virtual void {\bfseries Set\+Rotation} (const float \&rot)
+\item 
+void \mbox{\hyperlink{class_entity_ad605eeb16d800831fcf70b3a5be2da2d}{Move}} (const sf\+::\+Vector2f \&delta)
+\item 
+void \mbox{\hyperlink{class_entity_a78a4083bdd81fc24365f7bb86e291425}{Rotate}} (const float \&delta)
+\item 
+void \mbox{\hyperlink{class_entity_aa75151fc607686b42d27f8c3ba73143d}{Destroy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_entity_a1d006ae3028ba4ddfc9b4f202ccddf55}{Draw}} ()=0
+\item 
+\mbox{\Hypertarget{class_entity_a5bc4d9114f5b5e75aed51d2fc36b43d0}\label{class_entity_a5bc4d9114f5b5e75aed51d2fc36b43d0}} 
+sf\+::\+Vector2f {\bfseries Get\+Location} () const
+\item 
+\mbox{\Hypertarget{class_entity_ab5e5cf79cf2ce961c23061798488bcc4}\label{class_entity_ab5e5cf79cf2ce961c23061798488bcc4}} 
+float {\bfseries Get\+Rotation} () const
+\item 
+\mbox{\Hypertarget{class_entity_a3afc67113faa29277200f9f368614d4e}\label{class_entity_a3afc67113faa29277200f9f368614d4e}} 
+bool {\bfseries Is\+Destroyed} () const
+\item 
+void \mbox{\hyperlink{class_entity_a11c74ff6a08f126fa0f1f927dba215d3}{Reset\+Controller}} (\mbox{\hyperlink{class_entity_controller}{Entity\+Controller}} $\ast$\mbox{\hyperlink{class_entity_aae95fabac07322ac31d03b582f74f393}{controller}})
+\item 
+virtual void \mbox{\hyperlink{class_entity_a87a4695d4f5ca340346e2e44b2fdb26a}{Update}} (const float \&delta\+Time)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_controller}{Entity\+Controller}} $\ast$ \mbox{\hyperlink{class_entity_aae95fabac07322ac31d03b582f74f393}{controller}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_entity_ad64dd6d282432a68475f30f7c7bbdc88}{texture}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_entity_a5b94ee2356d46ca6852e2807c3701133}{location}}
+\item 
+float \mbox{\hyperlink{class_entity_aa384ccfdaba36b1ff5f5db51ec3cdcb1}{rotation}}
+\item 
+bool \mbox{\hyperlink{class_entity_a0ff0afc330fd03bb82e596dae58a6210}{destroyed}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstact class used to create units on \mbox{\hyperlink{class_level}{Level}}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entity_ab076af15dcbbda1a1f6ef0da746919fb}\label{class_entity_ab076af15dcbbda1a1f6ef0da746919fb}} 
+\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{Entity()}{Entity()}}
+{\footnotesize\ttfamily Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity_controller}{Entity\+Controller}} $\ast$}]{controller }\end{DoxyParamCaption})}
+
+constructor of \mbox{\hyperlink{class_entity}{Entity}}. By default sets controller to nullptr (if not used). Sets destroyed to false 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_aa75151fc607686b42d27f8c3ba73143d}\label{class_entity_aa75151fc607686b42d27f8c3ba73143d}} 
+\index{Entity@{Entity}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void Entity\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets destroyed to true \mbox{\Hypertarget{class_entity_a1d006ae3028ba4ddfc9b4f202ccddf55}\label{class_entity_a1d006ae3028ba4ddfc9b4f202ccddf55}} 
+\index{Entity@{Entity}!Draw@{Draw}}
+\index{Draw@{Draw}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Entity\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Base virtual method to draw objects (units) 
+
+Implemented in \mbox{\hyperlink{class_explosion_a7c63ca80a8b15f581302be57342ce329}{Explosion}}, \mbox{\hyperlink{class_block_a6d49bcccea386310e034cddb0bab4620}{Block}}, \mbox{\hyperlink{class_entity_bomberman_a8cc4d0ad8f449ec8f15a1c11ea4b643e}{Entity\+Bomberman}}, and \mbox{\hyperlink{class_bomb_a307a7d181cd802b6ae7fb41505fd841f}{Bomb}}.
+
+\mbox{\Hypertarget{class_entity_ad605eeb16d800831fcf70b3a5be2da2d}\label{class_entity_ad605eeb16d800831fcf70b3a5be2da2d}} 
+\index{Entity@{Entity}!Move@{Move}}
+\index{Move@{Move}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Entity\+::\+Move (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Moves our unit \mbox{\Hypertarget{class_entity_a11c74ff6a08f126fa0f1f927dba215d3}\label{class_entity_a11c74ff6a08f126fa0f1f927dba215d3}} 
+\index{Entity@{Entity}!ResetController@{ResetController}}
+\index{ResetController@{ResetController}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{ResetController()}{ResetController()}}
+{\footnotesize\ttfamily void Entity\+::\+Reset\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity_controller}{Entity\+Controller}} $\ast$}]{controller }\end{DoxyParamCaption})}
+
+Resets the controller \mbox{\Hypertarget{class_entity_a78a4083bdd81fc24365f7bb86e291425}\label{class_entity_a78a4083bdd81fc24365f7bb86e291425}} 
+\index{Entity@{Entity}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}}
+{\footnotesize\ttfamily void Entity\+::\+Rotate (\begin{DoxyParamCaption}\item[{const float \&}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates our unit \mbox{\Hypertarget{class_entity_a87a4695d4f5ca340346e2e44b2fdb26a}\label{class_entity_a87a4695d4f5ca340346e2e44b2fdb26a}} 
+\index{Entity@{Entity}!Update@{Update}}
+\index{Update@{Update}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Entity\+::\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+virtual method to update units 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_aae95fabac07322ac31d03b582f74f393}\label{class_entity_aae95fabac07322ac31d03b582f74f393}} 
+\index{Entity@{Entity}!controller@{controller}}
+\index{controller@{controller}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity_controller}{Entity\+Controller}}$\ast$ Entity\+::controller\hspace{0.3cm}{\ttfamily [protected]}}
+
+controller for the unit (manages operations) \mbox{\Hypertarget{class_entity_a0ff0afc330fd03bb82e596dae58a6210}\label{class_entity_a0ff0afc330fd03bb82e596dae58a6210}} 
+\index{Entity@{Entity}!destroyed@{destroyed}}
+\index{destroyed@{destroyed}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{destroyed}{destroyed}}
+{\footnotesize\ttfamily bool Entity\+::destroyed\hspace{0.3cm}{\ttfamily [protected]}}
+
+By default false. If true then the unit is destroyed. \mbox{\Hypertarget{class_entity_a5b94ee2356d46ca6852e2807c3701133}\label{class_entity_a5b94ee2356d46ca6852e2807c3701133}} 
+\index{Entity@{Entity}!location@{location}}
+\index{location@{location}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{location}{location}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Entity\+::location\hspace{0.3cm}{\ttfamily [protected]}}
+
+location of the unit \mbox{\Hypertarget{class_entity_aa384ccfdaba36b1ff5f5db51ec3cdcb1}\label{class_entity_aa384ccfdaba36b1ff5f5db51ec3cdcb1}} 
+\index{Entity@{Entity}!rotation@{rotation}}
+\index{rotation@{rotation}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily float Entity\+::rotation\hspace{0.3cm}{\ttfamily [protected]}}
+
+rotation of the unit \mbox{\Hypertarget{class_entity_ad64dd6d282432a68475f30f7c7bbdc88}\label{class_entity_ad64dd6d282432a68475f30f7c7bbdc88}} 
+\index{Entity@{Entity}!texture@{texture}}
+\index{texture@{texture}!Entity@{Entity}}
+\subsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily sf\+::\+Texture Entity\+::texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+texture of the unit 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Entity.\+hpp\end{DoxyCompactItemize}

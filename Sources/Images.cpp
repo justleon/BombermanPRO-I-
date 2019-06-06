@@ -11,10 +11,11 @@ TextManager::TextManager()
 TextManager::~TextManager()
 {
     /* Usuwamy każdą teksturę. */
-    for (auto textureData : text_map){
+    /*for (auto textureData : text_map){
         if(textureData.second)
             delete (textureData.second);
-    }
+    }*/
+    TextManager::Cleanup();
 
 }
 

@@ -1,0 +1,133 @@
+\hypertarget{class_entity_bomberman_controller}{}\section{Entity\+Bomberman\+Controller Class Reference}
+\label{class_entity_bomberman_controller}\index{EntityBombermanController@{EntityBombermanController}}
+
+
+Controller for bomberman players.  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Bomberman.\+hpp$>$}
+
+Inheritance diagram for Entity\+Bomberman\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entity_bomberman_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_a0462c3732716eb3f92d9e0d256715aee}\label{class_entity_bomberman_controller_a0462c3732716eb3f92d9e0d256715aee}} 
+{\bfseries Entity\+Bomberman\+Controller} (bool first)
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_a038b57b0f1bbf2734b5cb4af030e4a8d}\label{class_entity_bomberman_controller_a038b57b0f1bbf2734b5cb4af030e4a8d}} 
+int $\ast$ {\bfseries Get\+Radius} ()
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_a1c6c4e1d622057270f636cf9f2e19498}\label{class_entity_bomberman_controller_a1c6c4e1d622057270f636cf9f2e19498}} 
+float $\ast$ {\bfseries Get\+Speed} ()
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_a94d0567a89a3c2605acab68bff9b0376}\label{class_entity_bomberman_controller_a94d0567a89a3c2605acab68bff9b0376}} 
+int $\ast$ {\bfseries Get\+Bomb\+Num} ()
+\item 
+virtual void \mbox{\hyperlink{class_entity_bomberman_controller_a46f91e9853f7d9fcd7d01421221ffc66}{Update}} (const float \&delta\+Time) override
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_af85cfb0ddafa3e936a8d579e6a0e1214}\label{class_entity_bomberman_controller_af85cfb0ddafa3e936a8d579e6a0e1214}} 
+bool {\bfseries Move\+Up} (const float \&delta, \mbox{\hyperlink{class_entity_bomberman}{Entity\+Bomberman}} $\ast$\mbox{\hyperlink{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}{owner}})
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_a0a6e729e728d617f81f2e073ca70eaf9}\label{class_entity_bomberman_controller_a0a6e729e728d617f81f2e073ca70eaf9}} 
+bool {\bfseries Move\+Down} (const float \&delta, \mbox{\hyperlink{class_entity_bomberman}{Entity\+Bomberman}} $\ast$\mbox{\hyperlink{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}{owner}})
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_ac49acfcabbc7afe98d67e5b263564bac}\label{class_entity_bomberman_controller_ac49acfcabbc7afe98d67e5b263564bac}} 
+bool {\bfseries Move\+Left} (const float \&delta, \mbox{\hyperlink{class_entity_bomberman}{Entity\+Bomberman}} $\ast$\mbox{\hyperlink{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}{owner}})
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_controller_a1bfa422c2a906b075a07b4a38b53ee1b}\label{class_entity_bomberman_controller_a1bfa422c2a906b075a07b4a38b53ee1b}} 
+bool {\bfseries Move\+Right} (const float \&delta, \mbox{\hyperlink{class_entity_bomberman}{Entity\+Bomberman}} $\ast$\mbox{\hyperlink{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}{owner}})
+\item 
+void \mbox{\hyperlink{class_entity_bomberman_controller_a9298c48059d95138fef3af1426cbf11d}{Plant\+Bomb}} (const float \&delta)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_entity_bomberman_controller_aa547862699a79584468698a827a58736}{player\+Move\+Speed}}
+\item 
+const float \mbox{\hyperlink{class_entity_bomberman_controller_a7f480660ac768d9f6d11d7afefb3f656}{bomb\+Period}}
+\item 
+int \mbox{\hyperlink{class_entity_bomberman_controller_a0f341f1399c40ee9ff9fe829516272b1}{bomb\+Num}}
+\item 
+float \mbox{\hyperlink{class_entity_bomberman_controller_a31d02fed1826403c9c28182ee3110c55}{bomb\+Time}}
+\item 
+int \mbox{\hyperlink{class_entity_bomberman_controller_aaad7208276ff0032a123919ff7315057}{bomb\+Radius}}
+\item 
+bool \mbox{\hyperlink{class_entity_bomberman_controller_a8378c298751c292366950b12574405a5}{is\+First}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Controller for bomberman players. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_bomberman_controller_a9298c48059d95138fef3af1426cbf11d}\label{class_entity_bomberman_controller_a9298c48059d95138fef3af1426cbf11d}} 
+\index{EntityBombermanController@{EntityBombermanController}!PlantBomb@{PlantBomb}}
+\index{PlantBomb@{PlantBomb}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{PlantBomb()}{PlantBomb()}}
+{\footnotesize\ttfamily void Entity\+Bomberman\+Controller\+::\+Plant\+Bomb (\begin{DoxyParamCaption}\item[{const float \&}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Plants the bomb in bomberman\textquotesingle{}s current location tile \mbox{\Hypertarget{class_entity_bomberman_controller_a46f91e9853f7d9fcd7d01421221ffc66}\label{class_entity_bomberman_controller_a46f91e9853f7d9fcd7d01421221ffc66}} 
+\index{EntityBombermanController@{EntityBombermanController}!Update@{Update}}
+\index{Update@{Update}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Entity\+Bomberman\+Controller\+::\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Using private methods it manages bombermans\textquotesingle{} motions 
+
+Implements \mbox{\hyperlink{class_entity_controller_ab7f285a1c788ab04b9f0c0260dc8c523}{Entity\+Controller}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_bomberman_controller_a0f341f1399c40ee9ff9fe829516272b1}\label{class_entity_bomberman_controller_a0f341f1399c40ee9ff9fe829516272b1}} 
+\index{EntityBombermanController@{EntityBombermanController}!bombNum@{bombNum}}
+\index{bombNum@{bombNum}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{bombNum}{bombNum}}
+{\footnotesize\ttfamily int Entity\+Bomberman\+Controller\+::bomb\+Num\hspace{0.3cm}{\ttfamily [private]}}
+
+Number of bombs that bomberman can plant \mbox{\Hypertarget{class_entity_bomberman_controller_a7f480660ac768d9f6d11d7afefb3f656}\label{class_entity_bomberman_controller_a7f480660ac768d9f6d11d7afefb3f656}} 
+\index{EntityBombermanController@{EntityBombermanController}!bombPeriod@{bombPeriod}}
+\index{bombPeriod@{bombPeriod}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{bombPeriod}{bombPeriod}}
+{\footnotesize\ttfamily const float Entity\+Bomberman\+Controller\+::bomb\+Period\hspace{0.3cm}{\ttfamily [private]}}
+
+time between planting new bombs (you can\textquotesingle{}t plant faster than 0.\+8s) \mbox{\Hypertarget{class_entity_bomberman_controller_aaad7208276ff0032a123919ff7315057}\label{class_entity_bomberman_controller_aaad7208276ff0032a123919ff7315057}} 
+\index{EntityBombermanController@{EntityBombermanController}!bombRadius@{bombRadius}}
+\index{bombRadius@{bombRadius}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{bombRadius}{bombRadius}}
+{\footnotesize\ttfamily int Entity\+Bomberman\+Controller\+::bomb\+Radius\hspace{0.3cm}{\ttfamily [private]}}
+
+Radius of bomb (strength) \mbox{\Hypertarget{class_entity_bomberman_controller_a31d02fed1826403c9c28182ee3110c55}\label{class_entity_bomberman_controller_a31d02fed1826403c9c28182ee3110c55}} 
+\index{EntityBombermanController@{EntityBombermanController}!bombTime@{bombTime}}
+\index{bombTime@{bombTime}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{bombTime}{bombTime}}
+{\footnotesize\ttfamily float Entity\+Bomberman\+Controller\+::bomb\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+initially set to bomb\+Period when planted. Then when is lower than 0 You can plant again \mbox{\Hypertarget{class_entity_bomberman_controller_a8378c298751c292366950b12574405a5}\label{class_entity_bomberman_controller_a8378c298751c292366950b12574405a5}} 
+\index{EntityBombermanController@{EntityBombermanController}!isFirst@{isFirst}}
+\index{isFirst@{isFirst}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{isFirst}{isFirst}}
+{\footnotesize\ttfamily bool Entity\+Bomberman\+Controller\+::is\+First\hspace{0.3cm}{\ttfamily [private]}}
+
+If true it means Player\+One false is player\+Two \mbox{\Hypertarget{class_entity_bomberman_controller_aa547862699a79584468698a827a58736}\label{class_entity_bomberman_controller_aa547862699a79584468698a827a58736}} 
+\index{EntityBombermanController@{EntityBombermanController}!playerMoveSpeed@{playerMoveSpeed}}
+\index{playerMoveSpeed@{playerMoveSpeed}!EntityBombermanController@{EntityBombermanController}}
+\subsubsection{\texorpdfstring{playerMoveSpeed}{playerMoveSpeed}}
+{\footnotesize\ttfamily float Entity\+Bomberman\+Controller\+::player\+Move\+Speed\hspace{0.3cm}{\ttfamily [private]}}
+
+bobmerman\textquotesingle{}s current speed 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Entity\+Bomberman.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,99 @@
+\hypertarget{class_entity_bomberman}{}\section{Entity\+Bomberman Class Reference}
+\label{class_entity_bomberman}\index{EntityBomberman@{EntityBomberman}}
+
+
+Class to manage bomberman players.  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Bomberman.\+hpp$>$}
+
+Inheritance diagram for Entity\+Bomberman\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entity_bomberman}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_bomberman_aecfbe83ba3dccae03069ed5e199337b2}{Entity\+Bomberman}} (bool first)
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_a48c96abf879366491e9b2bf1368625a4}\label{class_entity_bomberman_a48c96abf879366491e9b2bf1368625a4}} 
+virtual void {\bfseries Set\+Location} (const sf\+::\+Vector2f \&loc) override
+\item 
+virtual void \mbox{\hyperlink{class_entity_bomberman_a8cc4d0ad8f449ec8f15a1c11ea4b643e}{Draw}} () override
+\item 
+bool \mbox{\hyperlink{class_entity_bomberman_a34a0f17c5aab2afcf56a7ea84190193f}{Is\+Colliding}} ()
+\item 
+void \mbox{\hyperlink{class_entity_bomberman_ad9997de80c14794d3b442e7e6d773893}{Set\+Direction}} (Player\+Dir dir)
+\item 
+\mbox{\Hypertarget{class_entity_bomberman_a44ddaa5a895be24435e9becb74df9d90}\label{class_entity_bomberman_a44ddaa5a895be24435e9becb74df9d90}} 
+Player\+Dir {\bfseries Get\+Direction} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_entity_bomberman_aeb4c8553024331c7d4d25f387c856b1d}{player\+Sprite}}
+\item 
+Player\+Dir \mbox{\hyperlink{class_entity_bomberman_a47768720c9807e7edd7a71f4cc536e7b}{direction}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class to manage bomberman players. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_entity_bomberman_aecfbe83ba3dccae03069ed5e199337b2}\label{class_entity_bomberman_aecfbe83ba3dccae03069ed5e199337b2}} 
+\index{EntityBomberman@{EntityBomberman}!EntityBomberman@{EntityBomberman}}
+\index{EntityBomberman@{EntityBomberman}!EntityBomberman@{EntityBomberman}}
+\subsubsection{\texorpdfstring{EntityBomberman()}{EntityBomberman()}}
+{\footnotesize\ttfamily Entity\+Bomberman\+::\+Entity\+Bomberman (\begin{DoxyParamCaption}\item[{bool}]{first }\end{DoxyParamCaption})}
+
+Creates bomberman (first = true means player one) 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_bomberman_a8cc4d0ad8f449ec8f15a1c11ea4b643e}\label{class_entity_bomberman_a8cc4d0ad8f449ec8f15a1c11ea4b643e}} 
+\index{EntityBomberman@{EntityBomberman}!Draw@{Draw}}
+\index{Draw@{Draw}!EntityBomberman@{EntityBomberman}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Entity\+Bomberman\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Base virtual method to draw objects (units) 
+
+Implements \mbox{\hyperlink{class_entity_a1d006ae3028ba4ddfc9b4f202ccddf55}{Entity}}.
+
+\mbox{\Hypertarget{class_entity_bomberman_a34a0f17c5aab2afcf56a7ea84190193f}\label{class_entity_bomberman_a34a0f17c5aab2afcf56a7ea84190193f}} 
+\index{EntityBomberman@{EntityBomberman}!IsColliding@{IsColliding}}
+\index{IsColliding@{IsColliding}!EntityBomberman@{EntityBomberman}}
+\subsubsection{\texorpdfstring{IsColliding()}{IsColliding()}}
+{\footnotesize\ttfamily bool Entity\+Bomberman\+::\+Is\+Colliding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks (manages) collisions with powerups \mbox{\Hypertarget{class_entity_bomberman_ad9997de80c14794d3b442e7e6d773893}\label{class_entity_bomberman_ad9997de80c14794d3b442e7e6d773893}} 
+\index{EntityBomberman@{EntityBomberman}!SetDirection@{SetDirection}}
+\index{SetDirection@{SetDirection}!EntityBomberman@{EntityBomberman}}
+\subsubsection{\texorpdfstring{SetDirection()}{SetDirection()}}
+{\footnotesize\ttfamily void Entity\+Bomberman\+::\+Set\+Direction (\begin{DoxyParamCaption}\item[{Player\+Dir}]{dir }\end{DoxyParamCaption})}
+
+Sets the direction of the current player. Switches between front/back/left/right sprite texture 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_bomberman_a47768720c9807e7edd7a71f4cc536e7b}\label{class_entity_bomberman_a47768720c9807e7edd7a71f4cc536e7b}} 
+\index{EntityBomberman@{EntityBomberman}!direction@{direction}}
+\index{direction@{direction}!EntityBomberman@{EntityBomberman}}
+\subsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily Player\+Dir Entity\+Bomberman\+::direction\hspace{0.3cm}{\ttfamily [private]}}
+
+current direction of bomberman \mbox{\Hypertarget{class_entity_bomberman_aeb4c8553024331c7d4d25f387c856b1d}\label{class_entity_bomberman_aeb4c8553024331c7d4d25f387c856b1d}} 
+\index{EntityBomberman@{EntityBomberman}!playerSprite@{playerSprite}}
+\index{playerSprite@{playerSprite}!EntityBomberman@{EntityBomberman}}
+\subsubsection{\texorpdfstring{playerSprite}{playerSprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Entity\+Bomberman\+::player\+Sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+sprite of bomberman 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Entity\+Bomberman.\+hpp\end{DoxyCompactItemize}

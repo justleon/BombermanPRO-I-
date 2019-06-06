@@ -1,0 +1,140 @@
+\hypertarget{class_text_manager}{}\section{Text\+Manager Class Reference}
+\label{class_text_manager}\index{TextManager@{TextManager}}
+
+
+Class to manage textures.  
+
+
+
+
+{\ttfamily \#include $<$Images.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $\ast$ $>$ \mbox{\hyperlink{class_text_manager_ab982469e25633e1e17ef8fffa96712ac}{text\+\_\+um}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_manager_a9176b8e0ebb67704649e5f7869b36317}{$\sim$\+Text\+Manager}} ()
+\item 
+\mbox{\hyperlink{class_text_manager_a399a24e6fd8323b89ef6f72e3402b122}{Text\+Manager}} (const \mbox{\hyperlink{class_text_manager}{Text\+Manager}} \&Next)=delete
+\item 
+\mbox{\Hypertarget{class_text_manager_a357d86c0ca83daa726b49a87ba95a3f8}\label{class_text_manager_a357d86c0ca83daa726b49a87ba95a3f8}} 
+void {\bfseries operator=} (const \mbox{\hyperlink{class_text_manager}{Text\+Manager}} \&Next)=delete
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static sf\+::\+Texture $\ast$ \mbox{\hyperlink{class_text_manager_a1c84d24abb82f311818f38e4f9c635df}{Load}} (const std\+::string \&texture\+Name, const std\+::string \&texture\+Path)
+\item 
+static bool \mbox{\hyperlink{class_text_manager_a3af7a053bdcd759d13d2759c3434a4a1}{Unload}} (const std\+::string \&texture\+Name)
+\item 
+static std\+::size\+\_\+t \mbox{\hyperlink{class_text_manager_a49d82957f1c2915df70ba01b8ba1eb99}{Cleanup}} ()
+\item 
+static sf\+::\+Texture $\ast$ \mbox{\hyperlink{class_text_manager_a67f615b512e31f77d93be69715876d31}{Get}} (const std\+::string \&texture\+Name)
+\item 
+static bool \mbox{\hyperlink{class_text_manager_a2d7c607da9112ef63ae84d4b9d8bd5cd}{Exists}} (const std\+::string \&texture\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_manager_a10708b85d4ba3241732df21961f1b4a4}{Text\+Manager}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_text_manager}{Text\+Manager}} \& \mbox{\hyperlink{class_text_manager_aef625a6be5a7239925609ba62acdf1a9}{Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_manager_ab982469e25633e1e17ef8fffa96712ac}{text\+\_\+um}} \mbox{\hyperlink{class_text_manager_af04fbfe91b649d756db506ed6e3ba8a9}{text\+\_\+map}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to manage textures. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_text_manager_ab982469e25633e1e17ef8fffa96712ac}\label{class_text_manager_ab982469e25633e1e17ef8fffa96712ac}} 
+\index{TextManager@{TextManager}!text\_um@{text\_um}}
+\index{text\_um@{text\_um}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{text\_um}{text\_um}}
+{\footnotesize\ttfamily typedef std\+::unordered\+\_\+map$<$std\+::string, sf\+::\+Texture $\ast$$>$ \mbox{\hyperlink{class_text_manager_ab982469e25633e1e17ef8fffa96712ac}{Text\+Manager\+::text\+\_\+um}}}
+
+typedef for our texture container 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_manager_a9176b8e0ebb67704649e5f7869b36317}\label{class_text_manager_a9176b8e0ebb67704649e5f7869b36317}} 
+\index{TextManager@{TextManager}!````~TextManager@{$\sim$TextManager}}
+\index{````~TextManager@{$\sim$TextManager}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{$\sim$TextManager()}{~TextManager()}}
+{\footnotesize\ttfamily Text\+Manager\+::$\sim$\+Text\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. Deletes all the textures (cleaning up) \mbox{\Hypertarget{class_text_manager_a399a24e6fd8323b89ef6f72e3402b122}\label{class_text_manager_a399a24e6fd8323b89ef6f72e3402b122}} 
+\index{TextManager@{TextManager}!TextManager@{TextManager}}
+\index{TextManager@{TextManager}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{TextManager()}{TextManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Text\+Manager\+::\+Text\+Manager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_text_manager}{Text\+Manager}} \&}]{Next }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\hyperlink{class_text_manager}{Text\+Manager}} is singleton, we forbid coppying it \mbox{\Hypertarget{class_text_manager_a10708b85d4ba3241732df21961f1b4a4}\label{class_text_manager_a10708b85d4ba3241732df21961f1b4a4}} 
+\index{TextManager@{TextManager}!TextManager@{TextManager}}
+\index{TextManager@{TextManager}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{TextManager()}{TextManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Text\+Manager\+::\+Text\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Private constructor because it\textquotesingle{}s a singletone class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_manager_a49d82957f1c2915df70ba01b8ba1eb99}\label{class_text_manager_a49d82957f1c2915df70ba01b8ba1eb99}} 
+\index{TextManager@{TextManager}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{Cleanup()}{Cleanup()}}
+{\footnotesize\ttfamily static std\+::size\+\_\+t Text\+Manager\+::\+Cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes all textures. returns the number of removed elements \mbox{\Hypertarget{class_text_manager_a2d7c607da9112ef63ae84d4b9d8bd5cd}\label{class_text_manager_a2d7c607da9112ef63ae84d4b9d8bd5cd}} 
+\index{TextManager@{TextManager}!Exists@{Exists}}
+\index{Exists@{Exists}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{Exists()}{Exists()}}
+{\footnotesize\ttfamily static bool Text\+Manager\+::\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Checks whether the Texture has been loaded before \mbox{\Hypertarget{class_text_manager_a67f615b512e31f77d93be69715876d31}\label{class_text_manager_a67f615b512e31f77d93be69715876d31}} 
+\index{TextManager@{TextManager}!Get@{Get}}
+\index{Get@{Get}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily static sf\+::\+Texture$\ast$ Text\+Manager\+::\+Get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a texture by name, if it hasn\textquotesingle{}t been loaded before it returns nullptr \mbox{\Hypertarget{class_text_manager_aef625a6be5a7239925609ba62acdf1a9}\label{class_text_manager_aef625a6be5a7239925609ba62acdf1a9}} 
+\index{TextManager@{TextManager}!Instance@{Instance}}
+\index{Instance@{Instance}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_text_manager}{Text\+Manager}}\& Text\+Manager\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+Creates a single instance of \mbox{\hyperlink{class_text_manager}{Text\+Manager}}. It\textquotesingle{}s private, because we manage Textures with static methods. \mbox{\Hypertarget{class_text_manager_a1c84d24abb82f311818f38e4f9c635df}\label{class_text_manager_a1c84d24abb82f311818f38e4f9c635df}} 
+\index{TextManager@{TextManager}!Load@{Load}}
+\index{Load@{Load}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily static sf\+::\+Texture$\ast$ Text\+Manager\+::\+Load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name,  }\item[{const std\+::string \&}]{texture\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads textures and sets them by key Value (texture\+Name). If there already exists one we change it. \mbox{\Hypertarget{class_text_manager_a3af7a053bdcd759d13d2759c3434a4a1}\label{class_text_manager_a3af7a053bdcd759d13d2759c3434a4a1}} 
+\index{TextManager@{TextManager}!Unload@{Unload}}
+\index{Unload@{Unload}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{Unload()}{Unload()}}
+{\footnotesize\ttfamily static bool Text\+Manager\+::\+Unload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{texture\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes texture by name from text\+\_\+map 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_text_manager_af04fbfe91b649d756db506ed6e3ba8a9}\label{class_text_manager_af04fbfe91b649d756db506ed6e3ba8a9}} 
+\index{TextManager@{TextManager}!text\_map@{text\_map}}
+\index{text\_map@{text\_map}!TextManager@{TextManager}}
+\subsubsection{\texorpdfstring{text\_map}{text\_map}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text_manager_ab982469e25633e1e17ef8fffa96712ac}{text\+\_\+um}} Text\+Manager\+::text\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+container for our textures 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Images.\+hpp\end{DoxyCompactItemize}

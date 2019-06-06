@@ -15,37 +15,40 @@
 #define X_BLOCKS 15
 #define Y_BLOCKS 11
 
+/// Our scene. Class for drawing and updating all of the objects.
 class Level
 {
 public:
+    /** typedef for our container */
     typedef std::vector<Entity *> Vunits;
 
     Level();
 
     ~Level();
-
+    /** Adds unit to our Level  */
     bool Add(Entity *unit);
-
+    /** Adds player to our Level */
     inline void AddPlayer(Entity* player) { players.push_back(player); }
-
+    /** Removes unit from our Level */
     bool Remove(Entity *unit);
-
-    std::vector <Entity*> GetUnitsAtLocation(const sf::Vector2f &location);
-
+    /** Checks whether unit is on Level */
     bool Exists(Entity *unit) const;
-
+    /** Returns a vector with tiles that can collide (Not background) */
     std::vector<Entity*> GetCollidingTiles();
+    /** Returns a vector with fire tiles */
     std::vector<Entity*> GetThreat();
-
+    /** Deletes all objects from units */
     std::size_t Cleanup();
-
+    /** Updates all units from Level */
     void Update(const float &deltaTime);
-
+    /** Draws all units from Level */
     void Draw();
     inline std::size_t Count() const { return players.size(); }
 private:
-    Vunits units;		// Wszystkie obiekty poza graczami
-    Vunits players;     // Gracze na scenie
+    /** Every units (textures) other than players */
+    Vunits units;
+    /** Players on level */
+    Vunits players;
 };
 
 void setMap(Level *currentLevel);

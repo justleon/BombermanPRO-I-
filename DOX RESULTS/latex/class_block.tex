@@ -1,0 +1,98 @@
+\hypertarget{class_block}{}\section{Block Class Reference}
+\label{class_block}\index{Block@{Block}}
+
+
+Manages all blocks (loading sprites, setting location, drawing)  
+
+
+
+
+{\ttfamily \#include $<$block.\+hpp$>$}
+
+Inheritance diagram for Block\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_block}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_block_ad5589c616b24a615a8eb3ca11c2faa75}{Block}} (Block\+Type)
+\item 
+virtual void \mbox{\hyperlink{class_block_a81095040d17d80f7cb3e7a67f4b2cea2}{Set\+Location}} (const sf\+::\+Vector2f \&loc) override
+\item 
+void \mbox{\hyperlink{class_block_ad6973b0ed9500d24a169434a4d0a3c23}{Set\+Sprite}} (std\+::string whatsprite)
+\item 
+virtual void \mbox{\hyperlink{class_block_a6d49bcccea386310e034cddb0bab4620}{Draw}} () override
+\item 
+\mbox{\Hypertarget{class_block_ab079a53b3291d9aae89181c7ef754343}\label{class_block_ab079a53b3291d9aae89181c7ef754343}} 
+Block\+Type {\bfseries Get\+Type} () const
+\item 
+\mbox{\Hypertarget{class_block_a4e5a546dfa29c1c20bbfbf98f5496ada}\label{class_block_a4e5a546dfa29c1c20bbfbf98f5496ada}} 
+sf\+::\+Sprite {\bfseries Get\+Sprite} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_block_a8626d22d09a307748bccb295bc45509d}\label{class_block_a8626d22d09a307748bccb295bc45509d}} 
+sf\+::\+Sprite {\bfseries bsprite}
+\item 
+Block\+Type \mbox{\hyperlink{class_block_a5a9ca25a0a1e718944de014be72554cc}{type}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Manages all blocks (loading sprites, setting location, drawing) 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_block_ad5589c616b24a615a8eb3ca11c2faa75}\label{class_block_ad5589c616b24a615a8eb3ca11c2faa75}} 
+\index{Block@{Block}!Block@{Block}}
+\index{Block@{Block}!Block@{Block}}
+\subsubsection{\texorpdfstring{Block()}{Block()}}
+{\footnotesize\ttfamily Block\+::\+Block (\begin{DoxyParamCaption}\item[{Block\+Type}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Type of the block (enum) 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_block_a6d49bcccea386310e034cddb0bab4620}\label{class_block_a6d49bcccea386310e034cddb0bab4620}} 
+\index{Block@{Block}!Draw@{Draw}}
+\index{Draw@{Draw}!Block@{Block}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily virtual void Block\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Draws block 
+
+Implements \mbox{\hyperlink{class_entity_a1d006ae3028ba4ddfc9b4f202ccddf55}{Entity}}.
+
+\mbox{\Hypertarget{class_block_a81095040d17d80f7cb3e7a67f4b2cea2}\label{class_block_a81095040d17d80f7cb3e7a67f4b2cea2}} 
+\index{Block@{Block}!SetLocation@{SetLocation}}
+\index{SetLocation@{SetLocation}!Block@{Block}}
+\subsubsection{\texorpdfstring{SetLocation()}{SetLocation()}}
+{\footnotesize\ttfamily virtual void Block\+::\+Set\+Location (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets location of block in location (loc) 
+
+Reimplemented from \mbox{\hyperlink{class_entity}{Entity}}.
+
+\mbox{\Hypertarget{class_block_ad6973b0ed9500d24a169434a4d0a3c23}\label{class_block_ad6973b0ed9500d24a169434a4d0a3c23}} 
+\index{Block@{Block}!SetSprite@{SetSprite}}
+\index{SetSprite@{SetSprite}!Block@{Block}}
+\subsubsection{\texorpdfstring{SetSprite()}{SetSprite()}}
+{\footnotesize\ttfamily void Block\+::\+Set\+Sprite (\begin{DoxyParamCaption}\item[{std\+::string}]{whatsprite }\end{DoxyParamCaption})}
+
+Gets and sets the block\textquotesingle{}s texture 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_block_a5a9ca25a0a1e718944de014be72554cc}\label{class_block_a5a9ca25a0a1e718944de014be72554cc}} 
+\index{Block@{Block}!type@{type}}
+\index{type@{type}!Block@{Block}}
+\subsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Block\+Type Block\+::type\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_block}{Block}} sf\+::sprite 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/block.\+hpp\end{DoxyCompactItemize}
