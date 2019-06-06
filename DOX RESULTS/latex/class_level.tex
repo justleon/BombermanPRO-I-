@@ -1,0 +1,136 @@
+\hypertarget{class_level}{}\section{Level Class Reference}
+\label{class_level}\index{Level@{Level}}
+
+
+Our scene. Class for drawing and updating all of the objects.  
+
+
+
+
+{\ttfamily \#include $<$Level.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} $\ast$ $>$ \mbox{\hyperlink{class_level_a015a1fa25ecf592918309b2d06e5784b}{Vunits}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_level_a3c6eeec185ecf58fbc2022b281896b50}{Add}} (\mbox{\hyperlink{class_entity}{Entity}} $\ast$unit)
+\item 
+void \mbox{\hyperlink{class_level_a72720ce01a5cd1774f66520ffa33128e}{Add\+Player}} (\mbox{\hyperlink{class_entity}{Entity}} $\ast$player)
+\item 
+bool \mbox{\hyperlink{class_level_a30421d6ae3d5d0c71e2bca97a6b34901}{Remove}} (\mbox{\hyperlink{class_entity}{Entity}} $\ast$unit)
+\item 
+bool \mbox{\hyperlink{class_level_a196a92ceea866e88e829ebf589e76589}{Exists}} (\mbox{\hyperlink{class_entity}{Entity}} $\ast$unit) const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} $\ast$ $>$ \mbox{\hyperlink{class_level_a028dcbbb085a3d587fcd3ac14eddb103}{Get\+Colliding\+Tiles}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} $\ast$ $>$ \mbox{\hyperlink{class_level_a5eff8099cd1bd25d3f40286956ddbf9a}{Get\+Threat}} ()
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_level_a61e1568c2c8677cb735f58a4808e485c}{Cleanup}} ()
+\item 
+void \mbox{\hyperlink{class_level_ae3eae8009b9fb300ca1cc6e55c998898}{Update}} (const float \&delta\+Time)
+\item 
+void \mbox{\hyperlink{class_level_adcfeec8d835d60b02018308dffa7cfd7}{Draw}} ()
+\item 
+\mbox{\Hypertarget{class_level_a5412024aa775a5a463fd585a9d42e64d}\label{class_level_a5412024aa775a5a463fd585a9d42e64d}} 
+std\+::size\+\_\+t {\bfseries Count} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_level_a015a1fa25ecf592918309b2d06e5784b}{Vunits}} \mbox{\hyperlink{class_level_abdf229333597aada073f91fc9b4b6932}{units}}
+\item 
+\mbox{\hyperlink{class_level_a015a1fa25ecf592918309b2d06e5784b}{Vunits}} \mbox{\hyperlink{class_level_aaab0af4a98e967392e735e5f38231571}{players}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Our scene. Class for drawing and updating all of the objects. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_level_a015a1fa25ecf592918309b2d06e5784b}\label{class_level_a015a1fa25ecf592918309b2d06e5784b}} 
+\index{Level@{Level}!Vunits@{Vunits}}
+\index{Vunits@{Vunits}!Level@{Level}}
+\subsubsection{\texorpdfstring{Vunits}{Vunits}}
+{\footnotesize\ttfamily typedef std\+::vector$<$\mbox{\hyperlink{class_entity}{Entity}} $\ast$$>$ \mbox{\hyperlink{class_level_a015a1fa25ecf592918309b2d06e5784b}{Level\+::\+Vunits}}}
+
+typedef for our container 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_level_a3c6eeec185ecf58fbc2022b281896b50}\label{class_level_a3c6eeec185ecf58fbc2022b281896b50}} 
+\index{Level@{Level}!Add@{Add}}
+\index{Add@{Add}!Level@{Level}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily bool Level\+::\+Add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{unit }\end{DoxyParamCaption})}
+
+Adds unit to our \mbox{\hyperlink{class_level}{Level}} \mbox{\Hypertarget{class_level_a72720ce01a5cd1774f66520ffa33128e}\label{class_level_a72720ce01a5cd1774f66520ffa33128e}} 
+\index{Level@{Level}!AddPlayer@{AddPlayer}}
+\index{AddPlayer@{AddPlayer}!Level@{Level}}
+\subsubsection{\texorpdfstring{AddPlayer()}{AddPlayer()}}
+{\footnotesize\ttfamily void Level\+::\+Add\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds player to our \mbox{\hyperlink{class_level}{Level}} \mbox{\Hypertarget{class_level_a61e1568c2c8677cb735f58a4808e485c}\label{class_level_a61e1568c2c8677cb735f58a4808e485c}} 
+\index{Level@{Level}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!Level@{Level}}
+\subsubsection{\texorpdfstring{Cleanup()}{Cleanup()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t Level\+::\+Cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes all objects from units \mbox{\Hypertarget{class_level_adcfeec8d835d60b02018308dffa7cfd7}\label{class_level_adcfeec8d835d60b02018308dffa7cfd7}} 
+\index{Level@{Level}!Draw@{Draw}}
+\index{Draw@{Draw}!Level@{Level}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Level\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Draws all units from \mbox{\hyperlink{class_level}{Level}} \mbox{\Hypertarget{class_level_a196a92ceea866e88e829ebf589e76589}\label{class_level_a196a92ceea866e88e829ebf589e76589}} 
+\index{Level@{Level}!Exists@{Exists}}
+\index{Exists@{Exists}!Level@{Level}}
+\subsubsection{\texorpdfstring{Exists()}{Exists()}}
+{\footnotesize\ttfamily bool Level\+::\+Exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{unit }\end{DoxyParamCaption}) const}
+
+Checks whether unit is on \mbox{\hyperlink{class_level}{Level}} \mbox{\Hypertarget{class_level_a028dcbbb085a3d587fcd3ac14eddb103}\label{class_level_a028dcbbb085a3d587fcd3ac14eddb103}} 
+\index{Level@{Level}!GetCollidingTiles@{GetCollidingTiles}}
+\index{GetCollidingTiles@{GetCollidingTiles}!Level@{Level}}
+\subsubsection{\texorpdfstring{GetCollidingTiles()}{GetCollidingTiles()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_entity}{Entity}}$\ast$$>$ Level\+::\+Get\+Colliding\+Tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a vector with tiles that can collide (Not background) \mbox{\Hypertarget{class_level_a5eff8099cd1bd25d3f40286956ddbf9a}\label{class_level_a5eff8099cd1bd25d3f40286956ddbf9a}} 
+\index{Level@{Level}!GetThreat@{GetThreat}}
+\index{GetThreat@{GetThreat}!Level@{Level}}
+\subsubsection{\texorpdfstring{GetThreat()}{GetThreat()}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_entity}{Entity}}$\ast$$>$ Level\+::\+Get\+Threat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a vector with fire tiles \mbox{\Hypertarget{class_level_a30421d6ae3d5d0c71e2bca97a6b34901}\label{class_level_a30421d6ae3d5d0c71e2bca97a6b34901}} 
+\index{Level@{Level}!Remove@{Remove}}
+\index{Remove@{Remove}!Level@{Level}}
+\subsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily bool Level\+::\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{unit }\end{DoxyParamCaption})}
+
+Removes unit from our \mbox{\hyperlink{class_level}{Level}} \mbox{\Hypertarget{class_level_ae3eae8009b9fb300ca1cc6e55c998898}\label{class_level_ae3eae8009b9fb300ca1cc6e55c998898}} 
+\index{Level@{Level}!Update@{Update}}
+\index{Update@{Update}!Level@{Level}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Level\+::\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})}
+
+Updates all units from \mbox{\hyperlink{class_level}{Level}} 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_level_aaab0af4a98e967392e735e5f38231571}\label{class_level_aaab0af4a98e967392e735e5f38231571}} 
+\index{Level@{Level}!players@{players}}
+\index{players@{players}!Level@{Level}}
+\subsubsection{\texorpdfstring{players}{players}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_level_a015a1fa25ecf592918309b2d06e5784b}{Vunits}} Level\+::players\hspace{0.3cm}{\ttfamily [private]}}
+
+Players on level \mbox{\Hypertarget{class_level_abdf229333597aada073f91fc9b4b6932}\label{class_level_abdf229333597aada073f91fc9b4b6932}} 
+\index{Level@{Level}!units@{units}}
+\index{units@{units}!Level@{Level}}
+\subsubsection{\texorpdfstring{units}{units}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_level_a015a1fa25ecf592918309b2d06e5784b}{Vunits}} Level\+::units\hspace{0.3cm}{\ttfamily [private]}}
+
+Every units (textures) other than players 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Level.\+hpp\end{DoxyCompactItemize}

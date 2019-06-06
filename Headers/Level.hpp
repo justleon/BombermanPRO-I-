@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
 #include "../Headers/Entity.hpp"
 #include "../Headers/block.hpp"
 
@@ -42,7 +43,7 @@ public:
     void Update(const float &deltaTime);
     /** Draws all units from Level */
     void Draw();
-    inline std::size_t Count() const { return units.size(); }
+    inline std::size_t Count() const { return players.size(); }
 private:
     /** Every units (textures) other than players */
     Vunits units;

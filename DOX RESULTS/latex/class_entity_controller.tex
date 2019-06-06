@@ -1,0 +1,85 @@
+\hypertarget{class_entity_controller}{}\section{Entity\+Controller Class Reference}
+\label{class_entity_controller}\index{EntityController@{EntityController}}
+
+
+Abstract class for all the controllers for other classes.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+Inheritance diagram for Entity\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.618497cm]{class_entity_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_entity_controller_ab7f285a1c788ab04b9f0c0260dc8c523}{Update}} (const float \&delta\+Time)=0
+\item 
+\mbox{\Hypertarget{class_entity_controller_ab446bd5d49bb62ca8d6d9550c9a50790}\label{class_entity_controller_ab446bd5d49bb62ca8d6d9550c9a50790}} 
+bool {\bfseries Is\+Controlled} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity}{Entity}} $\ast$ \mbox{\hyperlink{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}{owner}}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_entity_controller_acd8733f9db40bb100708e3c890279288}{Control}} (\mbox{\hyperlink{class_entity}{Entity}} $\ast$\mbox{\hyperlink{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}{owner}})
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_entity_controller_a614439ccac0344926adc4c0165d64060}{Entity}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class for all the controllers for other classes. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_entity_controller_acd8733f9db40bb100708e3c890279288}\label{class_entity_controller_acd8733f9db40bb100708e3c890279288}} 
+\index{EntityController@{EntityController}!Control@{Control}}
+\index{Control@{Control}!EntityController@{EntityController}}
+\subsubsection{\texorpdfstring{Control()}{Control()}}
+{\footnotesize\ttfamily bool Entity\+Controller\+::\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{owner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+returns True if changed the owner (protected) to owner \mbox{\Hypertarget{class_entity_controller_ab7f285a1c788ab04b9f0c0260dc8c523}\label{class_entity_controller_ab7f285a1c788ab04b9f0c0260dc8c523}} 
+\index{EntityController@{EntityController}!Update@{Update}}
+\index{Update@{Update}!EntityController@{EntityController}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Entity\+Controller\+::\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+virtual method for inherited classes (controllers) 
+
+Implemented in \mbox{\hyperlink{class_entity_bomberman_controller_a46f91e9853f7d9fcd7d01421221ffc66}{Entity\+Bomberman\+Controller}}, \mbox{\hyperlink{class_explosion_controller_ad67c33a4c9fc0f23c84266cb382500f1}{Explosion\+Controller}}, \mbox{\hyperlink{class_block_controller_a991f89cc93c19d0fe4188bca55e77d04}{Block\+Controller}}, and \mbox{\hyperlink{class_bomb_controller_ae84cb29af5b075c6802760105036abeb}{Bomb\+Controller}}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_entity_controller_a614439ccac0344926adc4c0165d64060}\label{class_entity_controller_a614439ccac0344926adc4c0165d64060}} 
+\index{EntityController@{EntityController}!Entity@{Entity}}
+\index{Entity@{Entity}!EntityController@{EntityController}}
+\subsubsection{\texorpdfstring{Entity}{Entity}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_entity}{Entity}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+friend class 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}\label{class_entity_controller_ae1cec9b9d4305b346d4a4dd0965dd136}} 
+\index{EntityController@{EntityController}!owner@{owner}}
+\index{owner@{owner}!EntityController@{EntityController}}
+\subsubsection{\texorpdfstring{owner}{owner}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_entity}{Entity}}$\ast$ Entity\+Controller\+::owner\hspace{0.3cm}{\ttfamily [protected]}}
+
+Unit to be controlled 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/Entity.\+hpp\end{DoxyCompactItemize}

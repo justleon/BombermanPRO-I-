@@ -1,0 +1,58 @@
+\hypertarget{class_explosion_controller}{}\section{Explosion\+Controller Class Reference}
+\label{class_explosion_controller}\index{ExplosionController@{ExplosionController}}
+
+
+Manages flames.  
+
+
+
+
+{\ttfamily \#include $<$bomb.\+hpp$>$}
+
+Inheritance diagram for Explosion\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_explosion_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_explosion_controller_ad67c33a4c9fc0f23c84266cb382500f1}{Update}} (const float \&delta\+Time) override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_explosion_controller_ac29b93a5277e3f486a02af139690fcbf}{flame\+Time}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Manages flames. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_explosion_controller_ad67c33a4c9fc0f23c84266cb382500f1}\label{class_explosion_controller_ad67c33a4c9fc0f23c84266cb382500f1}} 
+\index{ExplosionController@{ExplosionController}!Update@{Update}}
+\index{Update@{Update}!ExplosionController@{ExplosionController}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Explosion\+Controller\+::\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+destroys (removes from level) the flame textures when flame\+Time ends 
+
+Implements \mbox{\hyperlink{class_entity_controller_ab7f285a1c788ab04b9f0c0260dc8c523}{Entity\+Controller}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_explosion_controller_ac29b93a5277e3f486a02af139690fcbf}\label{class_explosion_controller_ac29b93a5277e3f486a02af139690fcbf}} 
+\index{ExplosionController@{ExplosionController}!flameTime@{flameTime}}
+\index{flameTime@{flameTime}!ExplosionController@{ExplosionController}}
+\subsubsection{\texorpdfstring{flameTime}{flameTime}}
+{\footnotesize\ttfamily float Explosion\+Controller\+::flame\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+The time that there are deadly flames on screen 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/bomb.\+hpp\end{DoxyCompactItemize}

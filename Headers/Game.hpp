@@ -26,6 +26,8 @@ public:
     ~Game();
     /** Method that runs the whole game */
     void Run();
+    void TitleScreen();
+    void GameOver();
     inline sf::RenderWindow& GetWindow() { return window; }
     inline Status GetStatus() const { return game_status; }
     inline Level *GetCurrentLevel() { return currentLevel; }
@@ -43,6 +45,9 @@ private:
     Status game_status;
     /** Level for all the Textures to add */
     Level *currentLevel;
+    /** sf:Font for menu */
+    sf::Font font;
+
 };
 
 #endif //SFML_GAME_HPP

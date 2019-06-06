@@ -1,0 +1,58 @@
+\hypertarget{class_bomb_controller}{}\section{Bomb\+Controller Class Reference}
+\label{class_bomb_controller}\index{BombController@{BombController}}
+
+
+\mbox{\hyperlink{class_bomb_controller}{Bomb\+Controller}}. Manages bombs\textquotesingle{} explosions.  
+
+
+
+
+{\ttfamily \#include $<$bomb.\+hpp$>$}
+
+Inheritance diagram for Bomb\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bomb_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_bomb_controller_ae84cb29af5b075c6802760105036abeb}{Update}} (const float \&delta\+Time) override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_bomb_controller_a8d957cdfb20acb8df26e4e3009ea37b6}{explode\+Time}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_bomb_controller}{Bomb\+Controller}}. Manages bombs\textquotesingle{} explosions. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bomb_controller_ae84cb29af5b075c6802760105036abeb}\label{class_bomb_controller_ae84cb29af5b075c6802760105036abeb}} 
+\index{BombController@{BombController}!Update@{Update}}
+\index{Update@{Update}!BombController@{BombController}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Bomb\+Controller\+::\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates Explosions (draws flames after explosion), but only in right places (not solid) 
+
+Implements \mbox{\hyperlink{class_entity_controller_ab7f285a1c788ab04b9f0c0260dc8c523}{Entity\+Controller}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bomb_controller_a8d957cdfb20acb8df26e4e3009ea37b6}\label{class_bomb_controller_a8d957cdfb20acb8df26e4e3009ea37b6}} 
+\index{BombController@{BombController}!explodeTime@{explodeTime}}
+\index{explodeTime@{explodeTime}!BombController@{BombController}}
+\subsubsection{\texorpdfstring{explodeTime}{explodeTime}}
+{\footnotesize\ttfamily float Bomb\+Controller\+::explode\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+Time after which the bombs explode 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/bindas/\+Documents2/\+Projekt/\+Headers/bomb.\+hpp\end{DoxyCompactItemize}
