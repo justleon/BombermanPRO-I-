@@ -36,6 +36,7 @@ bool EntityBomberman::IsColliding()
     for(auto* tile : tiles)
     {
         auto* block_cast = dynamic_cast<Block*>(tile);
+        auto* bomb_cast = dynamic_cast<Bomb*>(tile);
         if((block_cast->GetType() != BlockType::PUExp) && (block_cast->GetType() != BlockType::PUBomb) && (block_cast->GetType() != BlockType::PUSpeed)){
             sf::FloatRect tileCollider(sf::Vector2f(tile->GetLocation().x, tile->GetLocation().y), sf::Vector2f(TILE_SIZE, TILE_SIZE));
             if(tileCollider.intersects(collider))
@@ -48,6 +49,8 @@ bool EntityBomberman::IsColliding()
                     *(controller_cast->GetSpeed()) += powerup_cast->GetValue();
                 } else if(powerup_cast->GetType() == BlockType::PUExp){
                     *(controller_cast->GetRadius()) += powerup_cast->GetValue();
+                } else{
+                    *(controller_cast->GetBombNum()) += powerup_cast->GetValue();
                 }
                 tile->Destroy();
             }
@@ -85,18 +88,15 @@ void EntityBomberman::SetDirection(PlayerDir dir)
     }
 }
 
-EntityBombermanController::EntityBombermanController(bool first) : playerMoveSpeed(200), bombPeriod(0.8f), bombTime(0.8f), bombRadius(1), isFirst(first)
+EntityBombermanController::EntityBombermanController(bool first) : playerMoveSpeed(200), bombNum(1), bombPeriod(0.8f),
+    bombTime(0.8f), bombRadius(1), isFirst(first)
 {
 
 }
 
-/*Animation EntityBomberman::GetAnimation() const
-{
-    return anim;
-}*/
-
 void EntityBombermanController::Update(const float &deltaTime) {
     auto* owner_cast = dynamic_cast<EntityBomberman*>(owner);
+    sf::FloatRect collider(sf::Vector2f(owner->GetLocation().x-17.5, owner->GetLocation().y+5), sf::Vector2f(35, 25));
     bombTime -= deltaTime;
     if(isFirst){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
@@ -111,7 +111,7 @@ void EntityBombermanController::Update(const float &deltaTime) {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
             this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && bombTime <= 0){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (bombTime <= 0) && (bombNum > 0)){
             PlantBomb(deltaTime);
         }
     }
@@ -128,9 +128,17 @@ void EntityBombermanController::Update(const float &deltaTime) {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
             this->MoveRight(playerMoveSpeed * deltaTime, owner_cast);
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && bombTime <= 0){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::B) && (bombTime <= 0) && (bombNum > 0)){
             PlantBomb(deltaTime);
         }
+    }
+
+    auto fires = Game::Instance().GetCurrentLevel()->GetThreat();
+    for(auto* fire : fires)
+    {
+        sf::FloatRect tileCollider(sf::Vector2f(fire->GetLocation().x, fire->GetLocation().y), sf::Vector2f(TILE_SIZE, TILE_SIZE));
+        if(tileCollider.intersects(collider))
+            owner->Destroy();
     }
 
     //owner_cast->GetAnimation().Update(deltaTime);
@@ -182,11 +190,12 @@ bool EntityBombermanController::MoveRight(const float& delta, EntityBomberman* o
 
 void EntityBombermanController::PlantBomb(const float &delta) {
     bombTime = bombPeriod;
-    auto *bomb = new Bomb(bombRadius);
+    auto *bomb = new Bomb(this->GetRadius(), this->GetBombNum());
     sf::Vector2f loc = owner->GetLocation();
     loc.y += 10;
-    loc.x = (int(loc.x) / 64)*64;
-    loc.y = (int(loc.y) / 64)*64;
+    loc.x = (int(loc.x) / TILE_SIZE)*TILE_SIZE;
+    loc.y = (int(loc.y) / TILE_SIZE)*TILE_SIZE;
     bomb->SetLocation(loc);
     Game::Instance().GetCurrentLevel()->Add(bomb);
+    bombNum--;
 }

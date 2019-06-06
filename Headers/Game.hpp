@@ -11,6 +11,7 @@
 #include "../Headers/Images.hpp"
 #include "../Headers/EntityBomberman.hpp"
 
+/*! \enum Possible status of the game */
 enum Status {
     Init    = 0,
     Running = 1,
@@ -18,13 +19,17 @@ enum Status {
     Exit    = 3
 };
 
+/// Class for game instance.
+/** Class includes window for game, game status. */
 class Game {
 public:
     ~Game();
+    /** Method that runs the whole game */
     void Run();
     inline sf::RenderWindow& GetWindow() { return window; }
     inline Status GetStatus() const { return game_status; }
     inline Level *GetCurrentLevel() { return currentLevel; }
+    /** Game constructor is private because we have only one game. That's why we need game instance to refer to. */
     inline static Game& Instance(){
         static Game instance;
         return instance;
@@ -32,10 +37,12 @@ public:
 
 private:
     Game();
+    /** Window for our game with resolution of (X_BLOCKS * TILE_SIZE / Y_BLOCKS * TILE_SIZE)*/
     sf::RenderWindow window;
+    /** Game status. Status after constructor is Init (Initializing) */
     Status game_status;
+    /** Level for all the Textures to add */
     Level *currentLevel;
-
 };
 
 #endif //SFML_GAME_HPP

@@ -9,21 +9,24 @@
 #include "Images.hpp"
 #include "Game.hpp"
 
-#define VAL_SPEED 50
+#define VAL_SPEED 20
 #define VAL_BOMB 1
 
+/// PowerUp managing class
 template <typename T>
 class PowerUp : public Block
 {
 private:
     T value;
 public:
+    /** Sets the appropriate sprite for type of the PowerUp */
     explicit PowerUp(BlockType, T);
 
     inline T GetValue() const { return value; }
 };
 
 //Methods
+
 template <typename T>
 PowerUp<T>::PowerUp(BlockType putype, T val) : Block(putype), value(val)
 {

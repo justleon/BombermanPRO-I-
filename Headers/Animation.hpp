@@ -8,12 +8,14 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+/// Struct from animation
 struct Frame
 {
     sf::Texture sprite;
     float duration;
 };
 
+/// Not used. Created to develop the game later.
 class Animation
 {
 private:

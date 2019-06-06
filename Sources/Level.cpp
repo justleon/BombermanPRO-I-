@@ -3,6 +3,7 @@
 //
 
 #include "../Headers/Level.hpp"
+#include "../Headers/EntityBomberman.hpp"
 #include "../Headers/block.hpp"
 #include "../Headers/PowerUp.hpp"
 
@@ -20,9 +21,6 @@ bool Level::Add(Entity *unit)
 {
     if (unit)
     {
-        /*	Sprawdzamy czy przypadkiem podany unit
-            nie znajduje się już na scenie.
-        */
         if (!this->Exists(unit))
         {
             units.push_back(unit);
@@ -36,9 +34,6 @@ bool Level::Remove(Entity *unit)
 {
     if (unit)
     {
-        /*	Sprawdzamy czy unit jest na scenie.
-            Jeśli tak to go usuwamy.
-        */
         auto unitIter = std::find(units.begin(), units.end(), unit);
         if (unitIter != units.end())
         {
@@ -68,11 +63,26 @@ std::vector<Entity*> Level::GetCollidingTiles()
     return tiles;
 }
 
+std::vector<Entity*> Level::GetThreat()
+{
+    std::vector<Entity*> threats;
+    for(auto* fire : units)
+    {
+        auto* entity = dynamic_cast<Explosion*>(fire);
+        if(entity){
+            threats.push_back(entity);
+        }
+    }
+    return threats;
+}
+
 std::size_t Level::Cleanup()
 {
     std::size_t unitsCount = units.size();
     for (auto *unit : units)
         delete unit;
+    for(auto* player : players)
+        delete player;
     return unitsCount;
 }
 
@@ -85,19 +95,29 @@ void Level::Update(const float &deltaTime) {
             i--;
         }
     }
+    for (auto i = 0u; i < players.size(); i++) {
+        players[i]->Update(deltaTime);
+        if (players[i]->IsDestroyed()){
+            delete players[i];
+            players.erase(players.begin() + i);
+            i--;
+        }
+    }
 }
 
 void Level::Draw()
 {
     for (auto *unit : units)
         unit->Draw();
+    for (auto *player : players)
+        player->Draw();
 }
 
 void setMap(Level *currentLevel){
 
     std::vector<std::vector<int>> blocks;
     std::ifstream myMapFile;
-    myMapFile.open("../Maps/map1.txt");
+    myMapFile.open("../Maps/map2.txt");
     while (!myMapFile.eof()) {
         for(int i=0; i<Y_BLOCKS; i++){
             std::vector<int> tmpVec;
