@@ -33,9 +33,10 @@ sf::Texture* TextManager::Load(const std::string &textureName, const std::string
             to musimy ją utworzyć od podstaw.
             Tworzymy nową teksture.
         */
+
         result = new sf::Texture();
         /* Wczytujemy ją z pliku. */
-        result->loadFromFile(texturePath);
+        if(!(result->loadFromFile(texturePath))){exception: "loading image not successful";};
         /* Następnie zapisujemy ją w kontenerze.*/
         Instance().text_map[textureName] = result;
     }

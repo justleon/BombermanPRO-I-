@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
 #include "../Headers/Entity.hpp"
 #include "../Headers/block.hpp"
 

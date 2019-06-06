@@ -13,7 +13,7 @@
 
 #define TIME_FRAME 1/60.f
 
-Game::Game() : window(sf::VideoMode(X_BLOCKS * TILE_SIZE, Y_BLOCKS * TILE_SIZE), "B O M B E R M A N  P R O i"), game_status(Status::Init), currentLevel(new Level)
+Game::Game() : window(sf::VideoMode(X_BLOCKS * TILE_SIZE, Y_BLOCKS * TILE_SIZE), "B O M B E R M A N  P R O i"), game_status(Status::Init)
 {
     TextManager::Load("titlescreen", "../Graphics/Sprites/title_flat.jpg");
 
@@ -31,6 +31,8 @@ Game::Game() : window(sf::VideoMode(X_BLOCKS * TILE_SIZE, Y_BLOCKS * TILE_SIZE),
     TextManager::Load("PUExp", "../Graphics/Sprites/Powerups/FlamePowerup.png");
     TextManager::Load("PUBomb", "../Graphics/Sprites/Powerups/BombPowerup.png");
     TextManager::Load("PUSpeed", "../Graphics/Sprites/Powerups/SpeedPowerup.png");
+
+    font.loadFromFile("../Resources/arial-narrow.ttf");
 }
 
 Game::~Game() {
@@ -43,8 +45,7 @@ Game::~Game() {
 void Game::TitleScreen()
 {
     game_status = Status::Running;
-    sf::Font font;
-    font.loadFromFile("../Resources/arial-narrow.ttf");
+
     sf::Sprite mainmenu;
     mainmenu.setTexture(*(TextManager::Get("titlescreen")));
     mainmenu.scale(1.68, 1.25);
@@ -82,7 +83,10 @@ void Game::TitleScreen()
                     if(key < 0) key = 2;
                 }
                 if(event.key.code == sf::Keyboard::Enter){
-                    if(key == 0) Run();
+                    if(key == 0) {
+                        currentLevel = new Level;
+                        Run();
+                    }
                     else if(key == 2)
                         game_status = Status::Exit;
                 }
@@ -136,6 +140,10 @@ void Game::Run() {
         while(window.pollEvent(event)) {
             if(event.type == sf::Event::Closed)
                 game_status = Status::Exit;
+            if(event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Escape)
+                    game_status = Status::Exit;
+            }
         }
 
         window.clear(bColor);
@@ -145,5 +153,41 @@ void Game::Run() {
 
         window.display();
         DeltaTime = GameClock.getElapsedTime().asSeconds() - frameStart;
+    }
+    delete currentLevel;
+    GameOver();
+}
+
+void Game::GameOver()
+{
+    sf::Text gameover, pressEnter;
+    gameover.setFont(font);
+    gameover.setCharacterSize(65);
+    gameover.setPosition(320, 200);
+    gameover.setString("Game Over!");
+    pressEnter.setFont(font);
+    pressEnter.setCharacterSize(55);
+    pressEnter.setPosition(135, 275);
+    pressEnter.setString("Press ENTER to go to main menu");
+    while(game_status != Status::Exit) {
+        sf::Event event;
+
+        while(window.pollEvent(event)) {
+            if(event.type == sf::Event::Closed)
+                game_status = Status::Exit;
+            if(event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Escape)
+                    game_status = Status::Exit;
+                if(event.key.code == sf::Keyboard::Enter)
+                    TitleScreen();
+            }
+        }
+        sf::Color background(20, 20, 155);
+        window.clear(background);
+
+        window.draw(gameover);
+        window.draw(pressEnter);
+
+        window.display();
     }
 }

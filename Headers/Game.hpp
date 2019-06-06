@@ -23,6 +23,7 @@ public:
     ~Game();
     void Run();
     void TitleScreen();
+    void GameOver();
     inline sf::RenderWindow& GetWindow() { return window; }
     inline Status GetStatus() const { return game_status; }
     inline Level *GetCurrentLevel() { return currentLevel; }
@@ -36,7 +37,7 @@ private:
     sf::RenderWindow window;
     Status game_status;
     Level *currentLevel;
-
+    sf::Font font;
 };
 
 #endif //SFML_GAME_HPP

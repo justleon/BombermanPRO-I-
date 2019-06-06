@@ -2,7 +2,10 @@
 
 int main() {
     auto &game = Game::Instance();
-    game.TitleScreen();
-
+    try {
+        game.TitleScreen();
+    } catch(std::string w){
+        std::cout << "Exception!:" << w << std::endl;
+    }
     return 0;
 }
