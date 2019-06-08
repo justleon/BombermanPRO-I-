@@ -2,7 +2,6 @@
 // Created by Leon on 2019-05-12.
 //
 
-#include <SFML/Window/Mouse.hpp>
 #include <string>
 #include "../Headers/Game.hpp"
 #include "../Headers/Images.hpp"

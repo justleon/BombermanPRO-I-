@@ -28,7 +28,7 @@ public:
     /** Adds unit to our Level  */
     bool Add(Entity *unit);
     /** Adds player to our Level */
-    inline void AddPlayer(Entity* player) { players.push_back(player); }
+    inline bool AddPlayer(Entity* player) { if(player) { players.push_back(player); return true; } return false; }
     /** Removes unit from our Level */
     bool Remove(Entity *unit);
     /** Checks whether unit is on Level */

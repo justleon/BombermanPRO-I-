@@ -1,6 +1,8 @@
-#include "../Headers/Game.hpp"
+//#include "../Headers/Game.hpp"
+#include "../Headers/Tests.hpp"
 
 int main() {
+    Tests::RunTests();
     auto &game = Game::Instance();
     try {
         game.TitleScreen();

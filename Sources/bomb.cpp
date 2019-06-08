@@ -85,7 +85,7 @@ void Explosion::Draw() {
 }
 
 ExplosionController::ExplosionController()
-        : flameTime(1.5f)
+        : flameTime(.75f)
 {
 
 }
